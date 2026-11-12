@@ -1,0 +1,30 @@
+{
+  "date": "Thursday, 12 November 2026",
+  "top": [
+    {
+      "title": "Outlook: Copilot Chat Sheet UX Update for Mobile",
+      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=579897",
+      "grade": "A",
+      "source": "Microsoft 365 Roadmap"
+    },
+    {
+      "title": "Microsoft 365: [Education] Microsoft Learning Zone - Minecraft connected lessons",
+      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=577545",
+      "grade": "A",
+      "source": "Microsoft 365 Roadmap"
+    },
+    {
+      "title": "The next chapter for CI/CD in Fabric Warehouse (Preview)",
+      "link": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/The-next-chapter-for-CI-CD-in-Fabric-Warehouse-Preview/ba-p/5401222",
+      "grade": "A",
+      "source": "Microsoft Fabric Blog"
+    }
+  ],
+  "pricing_confirmed": 0,
+  "pricing_reported": 0,
+  "events": 0,
+  "offers": 0,
+  "stories": 30,
+  "sources_ok": 23,
+  "sources_failed": []
+}

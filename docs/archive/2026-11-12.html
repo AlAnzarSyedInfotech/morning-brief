@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Morning Brief: Thursday, 12 November 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root {
+  --paper: #FBFAF7; --ink: #16181D; --muted: #4A4F58; --body: #3B3F47;
+  --rule: #D9D6CE; --tint: #EFEDE6; --accent: #1F4E8C; --amber: #7A4F00;
+  --serif: "Source Serif 4", Georgia, serif;
+  --sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+a { color: var(--ink); text-decoration: none; }
+a:hover { color: var(--accent); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 32px 24px 56px; display: flex; flex-direction: column; gap: 32px; }
+.dateline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--muted); }
+.bar { height: 3px; background: var(--accent); margin: 16px 0; }
+h1.mast { margin: 0; text-align: center; font-family: var(--serif); font-weight: 700; font-size: clamp(40px, 7vw, 64px); line-height: 1.05; }
+.tagline { margin: 12px 0 16px; text-align: center; font-size: 15px; color: var(--muted); }
+.navrow { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 12px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.navrow nav { display: flex; flex-wrap: wrap; gap: 20px; font-size: 14px; font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 12px; color: var(--muted); }
+.g { display: inline-block; padding: 1px 7px; border-radius: 4px; font-weight: 600; font-size: 12px; line-height: 18px; }
+.gA { background: var(--ink); color: #fff; border: 1px solid var(--ink); }
+.gB { border: 1px solid var(--ink); color: var(--ink); }
+.gC { border: 1px dashed var(--amber); color: var(--amber); }
+.tag { border: 1px solid #8C887E; padding: 0 6px; border-radius: 4px; font-size: 12px; }
+.columns { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
+main { flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+aside { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding: 24px; background: var(--tint); border-radius: 8px; }
+.kicker { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+.lead { display: flex; flex-direction: column; gap: 12px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); }
+.lead h2 { margin: 0; font-family: var(--serif); font-size: clamp(28px, 4vw, 40px); line-height: 1.15; font-weight: 700; }
+.lead p { margin: 0; font-size: 17px; line-height: 1.55; color: var(--body); max-width: 72ch; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+section > h2 { margin: 0; font-family: var(--serif); font-size: 28px; padding-bottom: 8px; border-bottom: 2px solid var(--ink); }
+section { display: flex; flex-direction: column; gap: 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px 32px; }
+.story { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.story h3 { margin: 0; font-family: var(--serif); font-size: 21px; line-height: 1.25; font-weight: 600; }
+.story p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--body); }
+aside .story { border-top-color: #CFCBC0; }
+aside .story h3 { font-size: 18px; }
+aside > h2 { margin: 0; font-family: var(--serif); font-size: 26px; }
+.desk { display: flex; flex-direction: column; gap: 14px; padding: 20px; border: 2px solid var(--ink); border-radius: 8px; background: #fff; }
+.desk h3 { margin: 0; font-size: 18px; }
+.desk-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; }
+.desk-row a { font-family: var(--serif); font-size: 19px; font-weight: 600; flex: 1 1 320px; }
+.empty { margin: 0; font-size: 14px; color: var(--muted); }
+footer { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 2px solid var(--ink); font-size: 13px; color: var(--muted); }
+footer .stats { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+footer p { margin: 0; }
+</style>
+</head>
+<body>
+
+
+
+
+
+<div class="wrap">
+<header>
+  <div class="dateline">
+    <span>Thursday, 12 November 2026</span>
+    <span>Karachi edition, built 18:20 PKT</span>
+    <span>Covering the last 25 hours</span>
+  </div>
+  <div class="bar"></div>
+  <h1 class="mast">The Morning Brief</h1>
+  <p class="tagline">Microsoft Data &amp; AI, industry and clients, and the global AI agenda</p>
+  <div class="navrow">
+    <nav aria-label="Sections">
+      <a href="#microsoft">Microsoft Watch</a>
+      <a href="#industry">Industry &amp; Clients</a>
+      <a href="#global">Global AI Agenda</a>
+      <a href="#side">Off the Clock</a>
+    </nav>
+    <div class="legend">
+      <span>Source grade:</span>
+      <span class="g gA">A Official</span>
+      <span class="g gB">B Reputable</span>
+      <span class="g gC">C Unconfirmed</span>
+    </div>
+  </div>
+</header>
+
+<div class="columns">
+<main>
+  
+  <article class="lead">
+    <div class="kicker">Lead story: Copilot and Microsoft 365</div>
+    <h2><a href="https://www.microsoft.com/microsoft-365/roadmap?id=579897" target="_blank" rel="noopener">Outlook: Copilot Chat Sheet UX Update for Mobile</a></h2>
+    <p>Copilot Chat in Outlook on iOS and Android is getting updated! You&#39;ll notice smoother animations, improved strings, and some small changes to the header, such as the new/temporary chat button being moved behind the ...</p>
+    <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Microsoft 365 Roadmap</span><span>11 h ago</span>
+  
+  
+</div>
+  </article>
+  
+
+  <section id="microsoft">
+    <h2>Microsoft Watch</h2>
+    <div class="desk">
+      <div class="desk-row" style="justify-content: space-between">
+        <h3>Pricing &amp; Licensing Desk</h3>
+        <span class="meta">Shown as fact only when Microsoft confirms it</span>
+      </div>
+      
+      
+      
+      <p class="empty">No pricing or licensing changes found today.</p>
+      
+    </div>
+    <div class="desk">
+      <div class="desk-row" style="justify-content: space-between">
+        <h3>Events &amp; Certification Desk</h3>
+        <span class="meta">Microsoft AI and data sessions, and exam voucher offers</span>
+      </div>
+      
+      
+      
+      
+      <p class="empty">No new Microsoft AI or data events, or voucher offers, found today.</p>
+      
+      <p class="empty">Voucher terms vary by offer and region; check eligibility on the offer page before registering.</p>
+    </div>
+    
+    <div class="grid"><article class="story">
+  <div class="kicker">Copilot and Microsoft 365</div>
+  <h3><a href="https://www.microsoft.com/microsoft-365/roadmap?id=577545" target="_blank" rel="noopener">Microsoft 365: [Education] Microsoft Learning Zone - Minecraft connected lessons</a></h3>
+  <p>Bring Minecraft Education to every classroom with AI-powered tools that match curriculum goals to Build Challenges, blend lessons with project-based learning, launch directly from Learning Zone, and give you full visibility into participation, completion, and student...</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Microsoft 365 Roadmap</span><span>11 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Data platform</div>
+  <h3><a href="https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/The-next-chapter-for-CI-CD-in-Fabric-Warehouse-Preview/ba-p/5401222" target="_blank" rel="noopener">The next chapter for CI/CD in Fabric Warehouse (Preview)</a></h3>
+  <p>Building and operating a data warehouse is increasingly a software engineering discipline. Teams want to develop warehouse changes in isolation, version them in Git, review them through pull requests, promote them safely across environments, and automate the entire process using...</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Microsoft Fabric Blog</span><span>19 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Microsoft in the press</div>
+  <h3><a href="https://www.geekwire.com/2026/ai-voice-company-wellsaid-retools-for-agents-while-keeping-its-commitment-to-human-actors/" target="_blank" rel="noopener">AI voice company WellSaid retools for agents while keeping its commitment to human actors</a></h3>
+  <p>WellSaid connected its AI voiceover tools to assistants such as Claude, ChatGPT and Microsoft Copilot, letting businesses produce voiceovers from licensed actor voices without opening its app. The company has moved away from individual users to focus on businesses, now has about...</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>GeekWire</span><span>14 h ago</span>
+  
+  
+</div>
+</article></div>
+    
+  </section>
+
+  <section id="industry">
+    <h2>Industry &amp; Clients</h2>
+    
+    <div class="grid"><article class="story">
+  <div class="kicker">Pakistan</div>
+  <h3><a href="https://www.dawn.com/news/2044043/naqvi-suggests-referendum-as-solution-to-debate-on-new-administrative-units" target="_blank" rel="noopener">Naqvi suggests referendum as &#39;solution&#39; to debate on new administrative units</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Dawn</span><span>under 1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan</div>
+  <h3><a href="https://www.dawn.com/news/2044031/at-cop31-pm-shehbaz-calls-for-grant-based-finance-resilience-funding-for-climate-vulnerable-countries" target="_blank" rel="noopener">At COP31, PM Shehbaz calls for grant-based finance, resilience funding for climate-vulnerable countries</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Dawn</span><span>under 1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Banking and fintech</div>
+  <h3><a href="https://www.finextra.com/videoarticle/3646/what-early-industrial-revolutions-can-teach-us-about-inclusive-ai-adoption?utm_medium=rssfinextra&amp;utm_source=finextrafeed" target="_blank" rel="noopener">What Early Industrial Revolutions Can Teach Us About Inclusive AI Adoption</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Finextra</span><span>2 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan</div>
+  <h3><a href="https://www.dawn.com/news/2044014/significant-evidence-of-placer-gold-in-punjab-rivers-says-cm-maryam-at-minerals-investment-forum" target="_blank" rel="noopener">&#39;Significant evidence&#39; of placer gold in Punjab rivers, says CM Maryam at minerals investment forum</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Dawn</span><span>2 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan technology</div>
+  <h3><a href="https://www.brecorder.com/news/40448559/taiwans-foxconn-reports-34-rise-in-q3-profit-beats-forecasts" target="_blank" rel="noopener">Taiwan&#39;s Foxconn reports 34% rise in Q3 profit, beats forecasts</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Business Recorder (Technology)</span><span>6 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan technology</div>
+  <h3><a href="https://www.brecorder.com/news/40448549/jensen-hangs-on-as-nvidia-tumbles" target="_blank" rel="noopener">Jensen hangs on as Nvidia tumbles</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Business Recorder (Technology)</span><span>7 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan technology</div>
+  <h3><a href="https://www.brecorder.com/news/40448446/pakistans-fixed-broadband-operators-fall-short-of-pta-quality-benchmarks" target="_blank" rel="noopener">Pakistan’s fixed broadband operators fall short of PTA quality benchmarks</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Business Recorder (Technology)</span><span>20 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Banking and fintech</div>
+  <h3><a href="https://www.finextra.com/pressarticle/111647/crdit-agricole-deutschland-selects-enfuce-as-partner-for-visa-debit-cards?utm_medium=rssfinextra&amp;utm_source=finextrafeed" target="_blank" rel="noopener">Crédit Agricole Deutschland selects Enfuce as partner for Visa debit cards</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Finextra</span><span>24 h ago</span>
+  
+  
+</div>
+</article></div>
+    
+  </section>
+
+  <section id="global">
+    <h2>Global AI Agenda</h2>
+    
+    <div class="grid"><article class="story">
+  <div class="kicker">AI breakthrough</div>
+  <h3><a href="https://openai.com/business/customer-stories/holidays-extras-codex" target="_blank" rel="noopener">Holiday Extras is rethinking what it can build with Codex</a></h3>
+  <p>With Codex, Holiday Extras is turning customer expertise into better apps, higher booking conversion and new possibilities for growth.</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>OpenAI News</span><span>3 h ago</span>
+  <span class="tag">Company announcement</span>
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI breakthrough</div>
+  <h3><a href="https://openai.com/index/children-first-declaration" target="_blank" rel="noopener">Supporting research on AI and children’s safety</a></h3>
+  <p>OpenAI commits $2 million to research on AI and children’s safety. The work supports shared tools to measure risks and opportunities for young people.</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>OpenAI News</span><span>13 h ago</span>
+  <span class="tag">Company announcement</span>
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI breakthrough</div>
+  <h3><a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/" target="_blank" rel="noopener">Gemini Decisions API: Fast, calibrated multimodal decisions</a></h3>
+  <p>Meet the Gemini Decisions API, powered by our state-of-the-art model Gemini Decision for fast, calibrated multimodal decisions.</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Google AI Blog</span><span>19 h ago</span>
+  <span class="tag">Company announcement</span>
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI breakthrough</div>
+  <h3><a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/" target="_blank" rel="noopener">Try Tabletop: Customizable, collaborative spaces for groups to plan, play and do more together.</a></h3>
+  <p>Tabletop is a new Google Labs experiment for group collaboration. Build interactive itineraries, polls, and brackets with your team.</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Google AI Blog</span><span>21 h ago</span>
+  <span class="tag">Company announcement</span>
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI industry</div>
+  <h3><a href="https://techcrunch.com/2026/11/11/who-could-replace-jensen-huang-a-highly-unscientific-list-of-possible-successors/" target="_blank" rel="noopener">Who could replace Jensen Huang? A highly unscientific list of possible successors</a></h3>
+  <p>Nvidia has no succession plan and a CEO in hot water, so we’ve drafted a shortlist.</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>TechCrunch (AI)</span><span>10 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI industry</div>
+  <h3><a href="https://techcrunch.com/2026/11/11/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/" target="_blank" rel="noopener">The unfolding Jensen Huang scandal: a timeline</a></h3>
+  <p>The affair could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure.</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>TechCrunch (AI)</span><span>13 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI industry</div>
+  <h3><a href="https://techcrunch.com/2026/11/11/nvidias-stock-drops-as-board-reportedly-preps-to-oust-ceo-jensen-huang/" target="_blank" rel="noopener">Nvidia’s stock drops as board reportedly preps to oust CEO Jensen Huang</a></h3>
+  <p>As soon as Wednesday evening, Nvidia&#39;s board could decide to remove its founder and CEO of 33 years.</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>TechCrunch (AI)</span><span>13 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI industry</div>
+  <h3><a href="https://techcrunch.com/2026/11/11/jensen-huang-accused-of-having-another-affair-with-a-nvidia-exec/" target="_blank" rel="noopener">Jensen Huang accused of having another affair — with an Nvidia exec</a></h3>
+  <p>Jensen Huang, who has come under fire for admitting to an affair with a woman accused of being a Chinese intelligence agent, has been accused of having a separate affair with an Nvidia subordinate.</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>TechCrunch (AI)</span><span>14 h ago</span>
+  
+  
+</div>
+</article></div>
+    
+  </section>
+</main>
+
+<aside id="side" aria-label="Off the Clock">
+  <div>
+    <h2>Off the Clock</h2>
+    <p class="empty">Career and personal interests</p>
+  </div>
+  
+  <p class="empty">No new stories from these sources in the last 25 hours.</p>
+</aside>
+</div>
+
+<footer>
+  <div class="stats">
+    <span>Sources checked: 23</span>
+    <span>Sources reached: 23</span>
+    <span>Stories: 30</span>
+    <span>Duplicates merged: 0</span>
+  </div>
+  
+  <p>Every headline links to the original article. Summaries are taken from each source's own feed; check the original before quoting it to a client.</p>
+</footer>
+</div>
+</body>
+</html>
