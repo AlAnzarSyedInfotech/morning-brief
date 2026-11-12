@@ -1,0 +1,362 @@
+# The Morning Brief: sources and settings
+#
+# Each feed has:
+#   name      Display name shown on the page
+#   url       RSS/Atom feed address
+#   grade     A = official/primary, B = reputable secondary, C = unconfirmed discovery source
+#   section   microsoft | industry | global | side
+#   kicker    Small category label shown above the headline
+#   enabled   true = used every morning; false = candidate, not used until you switch it on
+#   microsoft_official  true only for Microsoft's own sites (used by the Pricing & Licensing Desk)
+#   include_keywords    optional; keep only stories whose title or summary contains one of these words
+#   tag       optional label shown on every story from this source (paywall, preprint, and so on)
+#   max_items optional; most stories to take from this feed per day (default 4)
+#
+# "verified" notes record where the feed address was confirmed. Run the
+# "Check feeds" workflow any time to test every feed, including candidates.
+
+settings:
+  edition_city: Karachi
+  utc_offset_hours: 5          # Pakistan Standard Time
+  window_hours: 25             # stories from the last 25 hours (1 extra hour covers schedule delays)
+  page_title: The Morning Brief
+  max_per_section:
+    microsoft: 8
+    industry: 8
+    global: 8
+    side: 6
+  pricing_keywords:
+    - pricing
+    - price
+    - licensing
+    - license
+    - licence
+    - sku
+    - billing
+    - pay-as-you-go
+    - per user per month
+
+  # Events & Certification Desk
+  # A story counts as an event if it matches an event word AND a topic word.
+  event_keywords:
+    - virtual training day
+    - webinar
+    - livestream
+    - learn live
+    - ai tour
+    - microsoft ignite
+    - microsoft build
+    - reactor
+    - register now
+    - skills challenge
+    - fabcon
+    - conference
+    - summit
+    - bootcamp
+  event_topic_keywords:
+    - ai
+    - artificial intelligence
+    - copilot
+    - agent
+    - data
+    - fabric
+    - power bi
+    - azure
+    - analytics
+    - purview
+  voucher_keywords:
+    - voucher
+    - free exam
+    - exam discount
+    - discounted exam
+    - exam at no cost
+    - free certification
+    - certification offer
+    - 50% off
+
+# Words used to keep only relevant stories from broad Pakistan news feeds
+pakistan_filter: &pakistan_filter
+  - bank
+  - sbp
+  - state bank
+  - fintech
+  - digital
+  - ai
+  - artificial intelligence
+  - cloud
+  - data
+  - cyber
+  - microsoft
+  - telecom
+  - technology
+
+feeds:
+  # ---------------- Microsoft Watch ----------------
+  - name: Microsoft 365 Roadmap
+    url: https://www.microsoft.com/releasecommunications/api/v2/m365/rss
+    grade: A
+    section: microsoft
+    kicker: Copilot and Microsoft 365
+    microsoft_official: true
+    include_keywords: [copilot, agent, purview, ai]
+    max_items: 4
+    enabled: true
+    verified: listed as Microsoft 365 Roadmap feed on feeder.co (Nov 2026)
+
+  - name: Azure Updates
+    url: https://www.microsoft.com/releasecommunications/api/v2/azure/rss
+    grade: A
+    section: microsoft
+    kicker: Azure updates
+    microsoft_official: true
+    include_keywords: [ai, openai, foundry, fabric, data, sql, cosmos, purview, retire, price, pricing]
+    max_items: 4
+    enabled: true
+    verified: used as Azure updates feed in a published 2025 walkthrough (zenn.dev)
+
+  - name: Microsoft Azure Blog
+    url: https://azure.microsoft.com/en-us/blog/feed/
+    grade: A
+    section: microsoft
+    kicker: Azure and AI
+    microsoft_official: true
+    enabled: true
+    verified: listed on feeder.co Microsoft feeds (Nov 2026)
+
+  - name: Microsoft Fabric Blog
+    url: https://blog.fabric.microsoft.com/en-in/blog/feed/
+    grade: A
+    section: microsoft
+    kicker: Data platform
+    microsoft_official: true
+    enabled: true
+    verified: feed found in search results (Nov 2026); English (India) edition of the same blog
+
+  - name: Microsoft Power Platform Blog
+    url: https://www.microsoft.com/en-us/power-platform/blog/feed/
+    grade: A
+    section: microsoft
+    kicker: Power Platform and Copilot Studio
+    microsoft_official: true
+    enabled: true
+    verified: feeder.co reported it working (Nov 2026)
+
+  - name: Official Microsoft Blog
+    url: https://blogs.microsoft.com/feed/
+    grade: A
+    section: microsoft
+    kicker: Microsoft strategy
+    microsoft_official: true
+    enabled: true
+    verified: listed on feedspot Microsoft feeds (2026)
+
+  - name: Microsoft Source (AI)
+    url: https://news.microsoft.com/source/topics/ai/feed/
+    grade: A
+    section: microsoft
+    kicker: Microsoft AI news
+    microsoft_official: true
+    enabled: true
+    verified: named by feeder.co as Microsoft's AI news feed (Nov 2026)
+
+  - name: GeekWire
+    url: https://www.geekwire.com/feed/
+    grade: B
+    section: microsoft
+    kicker: Microsoft in the press
+    include_keywords: [microsoft, azure, copilot, nadella]
+    max_items: 3
+    enabled: true
+    verified: listed on feeder.co Microsoft feeds (Nov 2026)
+
+  - name: Microsoft Skills Hub Blog
+    url: https://techcommunity.microsoft.com/t5/s/gxcuf89792/rss/board?board.id=skills-hub-blog
+    grade: A
+    section: microsoft
+    kicker: Training and certification
+    microsoft_official: true
+    max_items: 3
+    enabled: true
+    verified: NOT directly confirmed. Microsoft Learn's blog moved to the Skills Hub blog in Nov 2025; this address follows the Tech Community RSS pattern seen on learn.microsoft.com. Confirm with Check feeds.
+
+  # ---------------- Industry & Clients ----------------
+  - name: Finextra
+    url: https://www.finextra.com/rss/headlines.aspx
+    grade: B
+    section: industry
+    kicker: Banking and fintech
+    include_keywords: [ai, artificial intelligence, generative, cloud, data, fraud, digital, microsoft, copilot, agent]
+    max_items: 4
+    enabled: true
+    verified: listed on feedspot fintech feeds (2026)
+
+  - name: Business Recorder (Pakistan business)
+    url: https://www.brecorder.com/feeds/business-finance/pakistan
+    grade: B
+    section: industry
+    kicker: Pakistan banking and business
+    include_keywords: *pakistan_filter
+    max_items: 4
+    enabled: true
+    verified: feed returned in search results (Nov 2026)
+
+  - name: Business Recorder (Technology)
+    url: https://www.brecorder.com/feeds/technology/
+    grade: B
+    section: industry
+    kicker: Pakistan technology
+    max_items: 3
+    enabled: true
+    verified: feed returned in search results (Nov 2026)
+
+  - name: Dawn
+    url: https://www.dawn.com/feeds/home
+    grade: B
+    section: industry
+    kicker: Pakistan
+    include_keywords: *pakistan_filter
+    max_items: 3
+    enabled: true
+    verified: listed on feedspot Pakistan feeds (2026)
+
+  - name: ProPakistani
+    url: https://propakistani.pk/feed
+    grade: C
+    section: industry
+    kicker: Pakistan technology
+    include_keywords: *pakistan_filter
+    max_items: 3
+    enabled: true
+    verified: listed on feedspot Pakistan feeds (2026)
+
+  # ---------------- Global AI Agenda ----------------
+  - name: The Verge (AI)
+    url: https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
+    grade: B
+    section: global
+    kicker: AI news
+    max_items: 4
+    enabled: true
+    verified: feeder.co tested it (Oct 2026)
+
+  - name: TechCrunch (AI)
+    url: https://techcrunch.com/category/artificial-intelligence/feed/
+    grade: B
+    section: global
+    kicker: AI industry
+    max_items: 4
+    enabled: true
+    verified: feeder.co tested it (Oct 2026)
+
+  - name: MIT Technology Review (AI)
+    url: https://www.technologyreview.com/topic/artificial-intelligence/feed
+    grade: B
+    section: global
+    kicker: AI analysis
+    tag: Limited free articles
+    max_items: 3
+    enabled: true
+    verified: feeder.co tested it (Oct 2026)
+
+  - name: Ars Technica (AI)
+    url: https://arstechnica.com/ai/feed/
+    grade: B
+    section: global
+    kicker: AI news
+    max_items: 3
+    enabled: true
+    verified: listed on feeder.co AI feeds (Nov 2026)
+
+  - name: OpenAI News
+    url: https://openai.com/news/rss.xml
+    grade: A
+    section: global
+    kicker: AI breakthrough
+    tag: Company announcement
+    max_items: 2
+    enabled: true
+    verified: listed in a 2026 AI feeds roundup (readless.app)
+
+  - name: Google AI Blog
+    url: https://blog.google/technology/ai/rss/
+    grade: A
+    section: global
+    kicker: AI breakthrough
+    tag: Company announcement
+    max_items: 2
+    enabled: true
+    verified: listed in a 2026 AI feeds roundup (readless.app)
+
+  - name: CISA Cybersecurity Advisories
+    url: https://www.cisa.gov/cybersecurity-advisories/cybersecurity-advisories.xml
+    grade: A
+    section: global
+    kicker: Security
+    max_items: 2
+    enabled: true
+    verified: feeder.co reported it working (2026)
+
+  # ---------------- Off the Clock (side section) ----------------
+  - name: arXiv General Economics
+    url: https://rss.arxiv.org/rss/econ.GN
+    grade: B
+    section: side
+    kicker: Behavioral economics
+    tag: Preprint, not peer-reviewed
+    include_keywords: [behavio, decision, judgment, judgement, artificial intelligence, algorithm, experiment, nudge]
+    max_items: 2
+    enabled: true
+    verified: address pattern documented by arXiv (info.arxiv.org/help/rss.html)
+
+  - name: arXiv Quantitative Finance
+    url: https://rss.arxiv.org/rss/q-fin
+    grade: B
+    section: side
+    kicker: Quant and algo trading
+    tag: Preprint, not peer-reviewed
+    include_keywords: [trading, portfolio, machine learning, deep learning, forecast, reinforcement]
+    max_items: 2
+    enabled: true
+    verified: address pattern documented by arXiv (info.arxiv.org/help/rss.html)
+
+  # ---------------- Candidates (NOT verified, switched off) ----------------
+  # Run the "Check feeds" workflow; if a candidate works, set enabled: true.
+  - name: MSRC Security Update Guide
+    url: https://api.msrc.microsoft.com/update-guide/rss
+    grade: A
+    section: global
+    kicker: Microsoft security
+    microsoft_official: true
+    max_items: 2
+    enabled: false
+    verified: listed on feeder.co, but very high volume (one item per CVE), so off by default
+
+  - name: Krebs on Security
+    url: https://krebsonsecurity.com/feed/
+    grade: B
+    section: global
+    kicker: Security
+    max_items: 1
+    enabled: false
+    verified: seen in a public feed list only; confirm with Check feeds
+
+  - name: arXiv Artificial Intelligence
+    url: https://rss.arxiv.org/rss/cs.AI
+    grade: B
+    section: global
+    kicker: AI research
+    tag: Preprint, not peer-reviewed
+    max_items: 2
+    enabled: false
+    verified: works, but 100+ papers a day; useful only once AI ranking is added
+
+# ---------------- Page watches ----------------
+# For pages with no RSS feed. Each morning the bot reads the page, keeps lines
+# that contain a keyword, and shows any line that is new since the last run.
+# The first run only records a starting point, so nothing shows until day 2.
+page_watches:
+  - name: Microsoft Virtual Training Days
+    url: https://www.microsoft.com/en-us/trainingdays
+    keywords: [ai, copilot, data, fabric, power bi, azure, agent, exam, certification, voucher]
+    enabled: true
+    verified: address seen in a third-party guide (cloudlabs.ai); the page may load its event list with JavaScript, in which case nothing will be found. Confirm with Check feeds.
