@@ -1,30 +1,30 @@
 {
-  "date": "Thursday, 12 November 2026",
+  "date": "Friday, 13 November 2026",
   "top": [
     {
-      "title": "Outlook: Copilot Chat Sheet UX Update for Mobile",
-      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=579897",
+      "title": "From AI ambition to business impact",
+      "link": "https://blogs.microsoft.com/blog/2026/11/12/from-ai-ambition-to-business-impact/",
       "grade": "A",
-      "source": "Microsoft 365 Roadmap"
+      "source": "Official Microsoft Blog"
     },
     {
-      "title": "Microsoft 365: [Education] Microsoft Learning Zone - Minecraft connected lessons",
-      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=577545",
+      "title": "[In preview] Public Preview: SQL performance monitoring for Azure SQL Managed Instance",
+      "link": "https://azure.microsoft.com/updates?id=574158",
       "grade": "A",
-      "source": "Microsoft 365 Roadmap"
+      "source": "Azure Updates"
     },
     {
-      "title": "The next chapter for CI/CD in Fabric Warehouse (Preview)",
-      "link": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/The-next-chapter-for-CI-CD-in-Fabric-Warehouse-Preview/ba-p/5401222",
+      "title": "Scaling AI value without losing control: Lessons from Frontier Firms",
+      "link": "https://blogs.microsoft.com/blog/2026/11/12/scaling-ai-value-without-losing-control-lessons-from-frontier-firms/",
       "grade": "A",
-      "source": "Microsoft Fabric Blog"
+      "source": "Official Microsoft Blog"
     }
   ],
   "pricing_confirmed": 0,
   "pricing_reported": 0,
   "events": 0,
   "offers": 0,
-  "stories": 30,
+  "stories": 41,
   "sources_ok": 23,
   "sources_failed": []
 }

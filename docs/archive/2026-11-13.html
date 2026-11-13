@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Morning Brief: Friday, 13 November 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root {
+  --paper: #FBFAF7; --ink: #16181D; --muted: #4A4F58; --body: #3B3F47;
+  --rule: #D9D6CE; --tint: #EFEDE6; --accent: #1F4E8C; --amber: #7A4F00;
+  --serif: "Source Serif 4", Georgia, serif;
+  --sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+a { color: var(--ink); text-decoration: none; }
+a:hover { color: var(--accent); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 32px 24px 56px; display: flex; flex-direction: column; gap: 32px; }
+.dateline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--muted); }
+.bar { height: 3px; background: var(--accent); margin: 16px 0; }
+h1.mast { margin: 0; text-align: center; font-family: var(--serif); font-weight: 700; font-size: clamp(40px, 7vw, 64px); line-height: 1.05; }
+.tagline { margin: 12px 0 16px; text-align: center; font-size: 15px; color: var(--muted); }
+.navrow { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 12px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.navrow nav { display: flex; flex-wrap: wrap; gap: 20px; font-size: 14px; font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 12px; color: var(--muted); }
+.g { display: inline-block; padding: 1px 7px; border-radius: 4px; font-weight: 600; font-size: 12px; line-height: 18px; }
+.gA { background: var(--ink); color: #fff; border: 1px solid var(--ink); }
+.gB { border: 1px solid var(--ink); color: var(--ink); }
+.gC { border: 1px dashed var(--amber); color: var(--amber); }
+.tag { border: 1px solid #8C887E; padding: 0 6px; border-radius: 4px; font-size: 12px; }
+.columns { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
+main { flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+aside { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding: 24px; background: var(--tint); border-radius: 8px; }
+.kicker { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+.lead { display: flex; flex-direction: column; gap: 12px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); }
+.lead h2 { margin: 0; font-family: var(--serif); font-size: clamp(28px, 4vw, 40px); line-height: 1.15; font-weight: 700; }
+.lead p { margin: 0; font-size: 17px; line-height: 1.55; color: var(--body); max-width: 72ch; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+section > h2 { margin: 0; font-family: var(--serif); font-size: 28px; padding-bottom: 8px; border-bottom: 2px solid var(--ink); }
+section { display: flex; flex-direction: column; gap: 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px 32px; }
+.story { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.story h3 { margin: 0; font-family: var(--serif); font-size: 21px; line-height: 1.25; font-weight: 600; }
+.story p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--body); }
+aside .story { border-top-color: #CFCBC0; }
+aside .story h3 { font-size: 18px; }
+aside > h2 { margin: 0; font-family: var(--serif); font-size: 26px; }
+.desk { display: flex; flex-direction: column; gap: 14px; padding: 20px; border: 2px solid var(--ink); border-radius: 8px; background: #fff; }
+.desk h3 { margin: 0; font-size: 18px; }
+.desk-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; }
+.desk-row a { font-family: var(--serif); font-size: 19px; font-weight: 600; flex: 1 1 320px; }
+.empty { margin: 0; font-size: 14px; color: var(--muted); }
+footer { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 2px solid var(--ink); font-size: 13px; color: var(--muted); }
+footer .stats { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+footer p { margin: 0; }
+</style>
+</head>
+<body>
+
+
+
+
+
+<div class="wrap">
+<header>
+  <div class="dateline">
+    <span>Friday, 13 November 2026</span>
+    <span>Karachi edition, built 11:34 PKT</span>
+    <span>Covering the last 25 hours</span>
+  </div>
+  <div class="bar"></div>
+  <h1 class="mast">The Morning Brief</h1>
+  <p class="tagline">Microsoft Data &amp; AI, industry and clients, and the global AI agenda</p>
+  <div class="navrow">
+    <nav aria-label="Sections">
+      <a href="#microsoft">Microsoft Watch</a>
+      <a href="#industry">Industry &amp; Clients</a>
+      <a href="#global">Global AI Agenda</a>
+      <a href="#side">Off the Clock</a>
+    </nav>
+    <div class="legend">
+      <span>Source grade:</span>
+      <span class="g gA">A Official</span>
+      <span class="g gB">B Reputable</span>
+      <span class="g gC">C Unconfirmed</span>
+    </div>
+  </div>
+</header>
+
+<div class="columns">
+<main>
+  
+  <article class="lead">
+    <div class="kicker">Lead story: Microsoft strategy</div>
+    <h2><a href="https://blogs.microsoft.com/blog/2026/11/12/from-ai-ambition-to-business-impact/" target="_blank" rel="noopener">From AI ambition to business impact</a></h2>
+    <p>Most business leaders I meet no longer need to be convinced that AI works. They’ve seen the pilots, the demos and the copilots.</p>
+    <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Official Microsoft Blog</span><span>13 h ago</span>
+  
+  
+</div>
+  </article>
+  
+
+  <section id="microsoft">
+    <h2>Microsoft Watch</h2>
+    <div class="desk">
+      <div class="desk-row" style="justify-content: space-between">
+        <h3>Pricing &amp; Licensing Desk</h3>
+        <span class="meta">Shown as fact only when Microsoft confirms it</span>
+      </div>
+      
+      
+      
+      <p class="empty">No pricing or licensing changes found today.</p>
+      
+    </div>
+    <div class="desk">
+      <div class="desk-row" style="justify-content: space-between">
+        <h3>Events &amp; Certification Desk</h3>
+        <span class="meta">Microsoft AI and data sessions, and exam voucher offers</span>
+      </div>
+      
+      
+      
+      
+      <p class="empty">No new Microsoft AI or data events, or voucher offers, found today.</p>
+      
+      <p class="empty">Voucher terms vary by offer and region; check eligibility on the offer page before registering.</p>
+    </div>
+    
+    <div class="grid"><article class="story">
+  <div class="kicker">Azure updates</div>
+  <h3><a href="https://azure.microsoft.com/updates?id=574158" target="_blank" rel="noopener">[In preview] Public Preview: SQL performance monitoring for Azure SQL Managed Instance</a></h3>
+  <p>The public preview of Microsoft-managed performance monitoring for Azure SQL Managed Instance is now available. Customers monitoring business-critical SQL Managed Instance workloads often rely on custom scripts and disconnected monitoring tools.</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Azure Updates</span><span>13 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Microsoft strategy</div>
+  <h3><a href="https://blogs.microsoft.com/blog/2026/11/12/scaling-ai-value-without-losing-control-lessons-from-frontier-firms/" target="_blank" rel="noopener">Scaling AI value without losing control: Lessons from Frontier Firms</a></h3>
+  <p>Results are widespread. Value at scale is not, and that gap is what this year’s research from IDC, commissioned by Microsoft, set out to explain.</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Official Microsoft Blog</span><span>14 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Microsoft in the press</div>
+  <h3><a href="https://www.geekwire.com/2026/amazon-tops-forbes-list-of-americas-best-companies-edging-out-apple-for-no-1/" target="_blank" rel="noopener">Amazon tops Forbes’ list of America’s best companies, edging out Apple for No. 1</a></h3>
+  <p>Amazon passed Apple for the top spot in Forbes’ third annual ranking, which also put Microsoft, Costco and Alaska Air Group in the top 50. Read More</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>GeekWire</span><span>9 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Microsoft in the press</div>
+  <h3><a href="https://www.geekwire.com/2026/nvidias-new-interim-ceo-spent-13-years-at-microsoft-far-from-the-spotlight/" target="_blank" rel="noopener">Nvidia’s interim CEO spent 13 years behind the scenes at Microsoft</a></h3>
+  <p>Colette Kress, named Nvidia&#39;s interim CEO on Thursday after Jensen Huang resigned, spent 13 years at Microsoft, including four as chief financial officer of its Server and Tools business. She faces her first test in the job Tuesday, when Nvidia reports quarterly results.</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>GeekWire</span><span>11 h ago</span>
+  
+  
+</div>
+</article></div>
+    
+  </section>
+
+  <section id="industry">
+    <h2>Industry &amp; Clients</h2>
+    
+    <div class="grid"><article class="story">
+  <div class="kicker">Pakistan banking and business</div>
+  <h3><a href="https://www.brecorder.com/news/40448737/sindh-registers-40x-rise-in-third-party-motor-insurance-policies" target="_blank" rel="noopener">Sindh registers 40x rise in third-party motor insurance policies</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Business Recorder (Latest)</span><span>under 1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan banking and business</div>
+  <h3><a href="https://www.brecorder.com/news/40448735/delhi-overtakes-lahore-as-worlds-most-polluted-city-as-air-quality-drops" target="_blank" rel="noopener">Delhi overtakes Lahore as world&#39;s most polluted city as air quality drops</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Business Recorder (Latest)</span><span>under 1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan banking and business</div>
+  <h3><a href="https://www.brecorder.com/news/40448733/wheat-rebounds-from-4-12-month-low-on-black-sea-supply-concerns" target="_blank" rel="noopener">Wheat rebounds from 4-1/2-month low on Black Sea supply concerns</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Business Recorder (Latest)</span><span>under 1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan banking and business</div>
+  <h3><a href="https://www.brecorder.com/news/40448730/chinas-yuan-inches-higher-as-companies-convert-cash-holdings" target="_blank" rel="noopener">China&#39;s yuan inches higher as companies convert cash holdings</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Business Recorder (Latest)</span><span>under 1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan</div>
+  <h3><a href="https://www.dawn.com/news/2044258/microsoft-outage-drags-on-for-hours-disrupting-outlook-teams-for-businesses-and-governments" target="_blank" rel="noopener">Microsoft outage drags on for hours, disrupting Outlook, Teams for businesses and governments</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Dawn</span><span>1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan</div>
+  <h3><a href="https://www.dawn.com/news/2044254/pakistan-calls-for-immediate-end-to-houthi-attacks-on-saudi-arabia-as-unsc-renews-yemen-sanctions" target="_blank" rel="noopener">Pakistan calls for ‘immediate’ end to Houthi attacks on Saudi Arabia as UNSC renews Yemen sanctions</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Dawn</span><span>2 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan</div>
+  <h3><a href="https://www.dawn.com/news/2044234/rizwan-imam-probe-nearing-completion-says-naqvi" target="_blank" rel="noopener">Rizwan, Imam probe nearing completion, says Naqvi</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Dawn</span><span>3 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Banking and fintech</div>
+  <h3><a href="https://www.finextra.com/newsarticle/48751/mastercard-opens-singapore-innovation-centre-of-excellence?utm_medium=rssfinextra&amp;utm_source=finextrafeed" target="_blank" rel="noopener">Mastercard opens Singapore innovation centre of excellence</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Finextra</span><span>6 h ago</span>
+  
+  
+</div>
+</article></div>
+    
+  </section>
+
+  <section id="global">
+    <h2>Global AI Agenda</h2>
+    
+    <div class="grid"><article class="story">
+  <div class="kicker">AI breakthrough</div>
+  <h3><a href="https://openai.com/business/customer-stories/amplitude" target="_blank" rel="noopener">How Amplitude ships product improvements in 1–2 days with OpenAI</a></h3>
+  <p>Built primarily on OpenAI models, Amplitude’s proactive product agent, Wave, identifies what to build, helps teams ship changes with coding agents, and measures the impact.</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>OpenAI News</span><span>10 h ago</span>
+  <span class="tag">Company announcement</span>
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI breakthrough</div>
+  <h3><a href="https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/" target="_blank" rel="noopener">Google Search gets a major upgrade with Gemini 4 Hydrogen</a></h3>
+  <p>Rotating carousel of cards with text &#34;Gemini 4 Hydrogen&#34; &#34;Now in Google Search&#34; and examples from the Google Search UI</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Google AI Blog</span><span>12 h ago</span>
+  <span class="tag">Company announcement</span>
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI breakthrough</div>
+  <h3><a href="https://openai.com/business/customer-stories/gondola" target="_blank" rel="noopener">Gondola doubles revenue as its team builds more with Codex</a></h3>
+  <p>Gondola helps creatives get credit and get hired, with Codex raising its lead engineer’s output by 50% and ChatGPT simplifying daily work.</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>OpenAI News</span><span>18 h ago</span>
+  <span class="tag">Company announcement</span>
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI industry</div>
+  <h3><a href="https://techcrunch.com/2026/11/12/democrats-launch-nvidia-investigation-write-scathing-letter-on-huangs-scheme-with-trump/" target="_blank" rel="noopener">Democrats launch Nvidia investigation, write scathing letter on Huang’s ‘scheme’ with Trump</a></h3>
+  <p>This Congressional investigation into Nvidia&#39;s China sales and its dealings with Trump is the second one, so far, since news of the alleged spy affair broke.</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>TechCrunch (AI)</span><span>7 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI news</div>
+  <h3><a href="https://arstechnica.com/ai/2026/11/faa-expands-ai-advice-to-manage-air-traffic-congestion-across-entire-us-airspace/" target="_blank" rel="noopener">FAA expands AI advice to manage air traffic congestion across entire US airspace</a></h3>
+  <p>Airlines praised the AI tool, but the air traffic controllers’ union wasn’t involved.</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Ars Technica (AI)</span><span>8 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI industry</div>
+  <h3><a href="https://techcrunch.com/2026/11/12/muse-can-now-place-calls-to-u-s-businesses-if-you-pay/" target="_blank" rel="noopener">Muse can now place calls to US businesses — if you pay</a></h3>
+  <p>Muse&#39;s AI can now place outbound calls to U.S. businesses — but it&#39;s not free.</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>TechCrunch (AI)</span><span>8 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI news</div>
+  <h3><a href="https://www.theverge.com/ai-artificial-intelligence/1032505/google-search-ai-mode-gemini-4-hydrogen" target="_blank" rel="noopener">Google’s new Gemini model is better at understanding complicated questions</a></h3>
+  <p>Google says its new Gemini 4 Hydrogen model can give more helpful answers to complex questions, including &#34;questions with multiple parts, hard-to-understand typos, or highly specific requests.&#34; The new model can break down your questions and address each part in its responses....</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>The Verge (AI)</span><span>8 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI industry</div>
+  <h3><a href="https://techcrunch.com/2026/11/12/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/" target="_blank" rel="noopener">The unfolding Jensen Huang scandal: a timeline</a></h3>
+  <p>Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure.</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>TechCrunch (AI)</span><span>8 h ago</span>
+  
+  
+</div>
+</article></div>
+    
+  </section>
+</main>
+
+<aside id="side" aria-label="Off the Clock">
+  <div>
+    <h2>Off the Clock</h2>
+    <p class="empty">Career and personal interests</p>
+  </div>
+  <article class="story">
+  <div class="kicker">Quant and algo trading</div>
+  <h3><a href="https://arxiv.org/abs/2611.17247v1" target="_blank" rel="noopener">Price-impact Martingale optimal transport</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>arXiv Quantitative Finance</span><span>11 h ago</span>
+  <span class="tag">Preprint, not peer-reviewed</span>
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Quant and algo trading</div>
+  <h3><a href="https://arxiv.org/abs/2611.17170v1" target="_blank" rel="noopener">Improving Algorithmic Trading for BESS on Intraday Electricity Markets through Distributional Price Forecasts</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>arXiv Quantitative Finance</span><span>12 h ago</span>
+  <span class="tag">Preprint, not peer-reviewed</span>
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Behavioral economics</div>
+  <h3><a href="https://arxiv.org/abs/2611.16471v1" target="_blank" rel="noopener">Accuracy Is Not Welfare: Evaluating AI Buyers under Strategic Price Complexity in a Synthetic Duopoly</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>arXiv General Economics</span><span>22 h ago</span>
+  <span class="tag">Preprint, not peer-reviewed</span>
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Behavioral economics</div>
+  <h3><a href="https://arxiv.org/abs/2611.15747v1" target="_blank" rel="noopener">Huge If True: Learning from the Size of the Surprise</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>arXiv General Economics</span><span>37 h ago</span>
+  <span class="tag">Preprint, not peer-reviewed</span>
+  
+</div>
+</article>
+  
+</aside>
+</div>
+
+<footer>
+  <div class="stats">
+    <span>Sources checked: 23</span>
+    <span>Sources reached: 23</span>
+    <span>Stories: 41</span>
+    <span>Duplicates merged: 0</span>
+  </div>
+  
+  <p>Every headline links to the original article. Summaries are taken from each source's own feed; check the original before quoting it to a client.</p>
+</footer>
+</div>
+</body>
+</html>
