@@ -2,9 +2,9 @@ name: Morning Brief
 
 on:
   schedule:
-    # 05:00 UTC = 10:00 PKT. GitHub may start scheduled runs some minutes late,
+    # # 04:23 UTC = 9:23 PKT, off the busy top of the hour.
     # so the bot starts 30 minutes before your 10:30 reading time.
-    - cron: "0 5 * * *"
+    - cron: "23 4 * * *"
   workflow_dispatch:   # adds a "Run workflow" button for manual runs
 
 permissions:
@@ -14,9 +14,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
