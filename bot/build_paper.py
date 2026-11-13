@@ -22,6 +22,8 @@ import requests
 import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+from markets import build_markets
+
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "config" / "sources.yaml"
 TEMPLATES = ROOT / "templates"
@@ -104,6 +106,9 @@ def fetch_feed(feed: dict) -> list:
     return parsed.entries
 
 
+RAW_ENTRIES: list[dict] = []  # every recent entry, unfiltered (used by the Markets panel)
+
+
 def collect(config: dict, now: datetime) -> tuple[list[dict], dict]:
     settings = config["settings"]
     stories: list[dict] = []
@@ -120,6 +125,11 @@ def collect(config: dict, now: datetime) -> tuple[list[dict], dict]:
             print(f"[skip] {feed['name']}: {exc}", file=sys.stderr)
             continue
         stats["ok"] += 1
+        for entry in entries:
+            published = entry_time(entry)
+            if published and now - timedelta(hours=48) <= published <= now + timedelta(hours=1):
+                RAW_ENTRIES.append({"title": clean_text(entry.get("title", "")), "summary": clean_text(entry.get("summary", "")),
+                                    "link": entry.get("link", ""), "source": feed["name"], "published": published})
 
         cutoff = now - timedelta(hours=feed.get("window_hours", settings["window_hours"]))
         excludes = settings.get("exclude_keywords", []) + feed.get("exclude_keywords", [])
@@ -287,6 +297,8 @@ def main() -> None:
     events, offers = events_desk(stories, settings)
     page_news, pages_failed = watch_pages(config)
     stats["failed"] += pages_failed
+    markets = build_markets(config, now, local, RAW_ENTRIES)
+    stats["failed"] += markets.get("failed", [])
     sections = build_sections(stories, settings["max_per_section"])
     lead = pick_lead(sections)
 
@@ -304,6 +316,7 @@ def main() -> None:
         events=events,
         offers=offers,
         page_news=page_news,
+        markets=markets,
         stats=stats,
         merged=merged,
         story_count=len(stories),
@@ -321,6 +334,8 @@ def main() -> None:
         "pricing_reported": len(reported),
         "events": len(events) + len(page_news),
         "offers": len(offers),
+        "usd_open_market": next((r for r in (markets.get("fx") or {}).get("rows", []) if r["code"] == "USD"), None),
+        "kmi30": next((i for i in markets.get("indices", []) if i["name"] == "KMI30"), None),
         "stories": len(stories),
         "sources_ok": stats["ok"],
         "sources_failed": stats["failed"],
