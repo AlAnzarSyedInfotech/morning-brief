@@ -11,6 +11,9 @@
 #   include_keywords    optional; keep only stories whose title or summary contains one of these words
 #   tag       optional label shown on every story from this source (paywall, preprint, and so on)
 #   max_items optional; most stories to take from this feed per day (default 4)
+#   exclude_keywords  optional; drop stories from this feed that contain any of these words
+#   lead_eligible     optional; false = never used as the lead story (for feeds of small updates)
+#   window_hours      optional; look further back than the default for this feed only
 #
 # "verified" notes record where the feed address was confirmed. Run the
 # "Check feeds" workflow any time to test every feed, including candidates.
@@ -35,6 +38,12 @@ settings:
     - billing
     - pay-as-you-go
     - per user per month
+
+  # Stories containing any of these words are dropped from every feed
+  exclude_keywords:
+    - minecraft
+    - xbox
+    - gaming
 
   # Events & Certification Desk
   # A story counts as an event if it matches an event word AND a topic word.
@@ -98,7 +107,9 @@ feeds:
     section: microsoft
     kicker: Copilot and Microsoft 365
     microsoft_official: true
-    include_keywords: [copilot, agent, purview, ai]
+    include_keywords: [copilot, agent, purview]
+    exclude_keywords: [education, edu, student, teacher, classroom]
+    lead_eligible: false
     max_items: 4
     enabled: true
     verified: listed as Microsoft 365 Roadmap feed on feeder.co (Nov 2026)
@@ -110,6 +121,7 @@ feeds:
     kicker: Azure updates
     microsoft_official: true
     include_keywords: [ai, openai, foundry, fabric, data, sql, cosmos, purview, retire, price, pricing]
+    lead_eligible: false
     max_items: 4
     enabled: true
     verified: used as Azure updates feed in a published 2025 walkthrough (zenn.dev)
@@ -190,15 +202,15 @@ feeds:
     enabled: true
     verified: listed on feedspot fintech feeds (2026)
 
-  - name: Business Recorder (Pakistan business)
-    url: https://www.brecorder.com/feeds/business-finance/pakistan
+  - name: Business Recorder (Latest)
+    url: https://www.brecorder.com/feeds/latest-news
     grade: B
     section: industry
     kicker: Pakistan banking and business
     include_keywords: *pakistan_filter
     max_items: 4
     enabled: true
-    verified: feed returned in search results (Nov 2026)
+    verified: feed returned in search results (Nov 2026). Replaces the business-finance/pakistan feed, which had not been updated for about 14 months. Confirm with Check feeds.
 
   - name: Business Recorder (Technology)
     url: https://www.brecorder.com/feeds/technology/
@@ -292,13 +304,15 @@ feeds:
     grade: A
     section: global
     kicker: Security
+    lead_eligible: false
     max_items: 2
     enabled: true
     verified: feeder.co reported it working (2026)
 
   # ---------------- Off the Clock (side section) ----------------
   - name: arXiv General Economics
-    url: https://rss.arxiv.org/rss/econ.GN
+    url: https://export.arxiv.org/api/query?search_query=cat:econ.GN&sortBy=submittedDate&sortOrder=descending&max_results=60
+    window_hours: 96
     grade: B
     section: side
     kicker: Behavioral economics
@@ -306,10 +320,11 @@ feeds:
     include_keywords: [behavio, decision, judgment, judgement, artificial intelligence, algorithm, experiment, nudge]
     max_items: 2
     enabled: true
-    verified: address pattern documented by arXiv (info.arxiv.org/help/rss.html)
+    verified: uses the arXiv search API (documented at info.arxiv.org/help/api); the RSS address returned no items from GitHub. Looks back 4 days because arXiv does not announce papers at weekends. Confirm with Check feeds.
 
   - name: arXiv Quantitative Finance
-    url: https://rss.arxiv.org/rss/q-fin
+    url: https://export.arxiv.org/api/query?search_query=cat:q-fin.*&sortBy=submittedDate&sortOrder=descending&max_results=60
+    window_hours: 96
     grade: B
     section: side
     kicker: Quant and algo trading
@@ -317,7 +332,7 @@ feeds:
     include_keywords: [trading, portfolio, machine learning, deep learning, forecast, reinforcement]
     max_items: 2
     enabled: true
-    verified: address pattern documented by arXiv (info.arxiv.org/help/rss.html)
+    verified: uses the arXiv search API (documented at info.arxiv.org/help/api); the RSS address returned no items from GitHub. Looks back 4 days because arXiv does not announce papers at weekends. Confirm with Check feeds.
 
   # ---------------- Candidates (NOT verified, switched off) ----------------
   # Run the "Check feeds" workflow; if a candidate works, set enabled: true.
