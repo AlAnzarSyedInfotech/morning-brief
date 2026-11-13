@@ -48,7 +48,7 @@ def main() -> None:
         ("Open market rates (ECAP via SBP)", lambda: markets.open_market_rates(local, ["USD", "EUR", "GBP", "AED", "SAR"]),
          lambda r: f"{len(r['rows'])} currencies, {r['date']}" if r else "none found. Tried: " + "; ".join(sorted(set(markets.ECAP_LOG)))[:300]),
         ("Pakistan gold (Aaj News page)", lambda: markets.pakistan_gold_page(local, max_age_days=30),
-         lambda r: f"Rs {r['price']:,.0f}, {r['date']}" if r else "no per-tola headline found"),
+         lambda r: f"Rs {r['price']:,.0f}, {r['date']}" if r else "no per-tola headline found. " + "; ".join(markets.GOLD_LOG)[:300]),
         ("International gold", markets.international_gold, lambda r: f"{r['price']:,.2f} USD from {r['source']}" if r else "no source answered"),
         ("PSX index levels", lambda: markets.psx_index_levels(["KSE100", "KMI30"]), lambda r: ", ".join(i["name"] for i in r) or "none parsed"),
         ("PSX KSE-100 stocks", lambda: markets.psx_index_stocks("KSE100"), lambda r: f"{len(r)} stocks"),
