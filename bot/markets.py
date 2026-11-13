@@ -116,7 +116,7 @@ def international_gold() -> dict | None:
     return None
 
 
-def pakistan_gold(entries: list[dict], now: datetime, max_age_hours: int = 48) -> dict | None:
+def pakistan_gold(entries: list[dict], now: datetime, max_age_hours: int = 72) -> dict | None:
     """24K per tola rate as reported in today's news (APGJSA rates).
 
     entries: dicts with title, summary, link, source, published (UTC).
