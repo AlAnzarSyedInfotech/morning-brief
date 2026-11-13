@@ -2,6 +2,12 @@
   "date": "Friday, 13 November 2026",
   "top": [
     {
+      "title": "Use OneLake as native storage for Azure Databricks",
+      "link": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Use-OneLake-as-native-storage-for-Azure-Databricks/ba-p/5377939",
+      "grade": "A",
+      "source": "Microsoft Fabric Blog"
+    },
+    {
       "title": "From AI ambition to business impact",
       "link": "https://blogs.microsoft.com/blog/2026/11/12/from-ai-ambition-to-business-impact/",
       "grade": "A",
@@ -12,12 +18,6 @@
       "link": "https://azure.microsoft.com/updates?id=574158",
       "grade": "A",
       "source": "Azure Updates"
-    },
-    {
-      "title": "Scaling AI value without losing control: Lessons from Frontier Firms",
-      "link": "https://blogs.microsoft.com/blog/2026/11/12/scaling-ai-value-without-losing-control-lessons-from-frontier-firms/",
-      "grade": "A",
-      "source": "Official Microsoft Blog"
     }
   ],
   "pricing_confirmed": 0,
@@ -36,9 +36,7 @@
     "change": 2055.96,
     "change_pct": 0.81
   },
-  "stories": 46,
+  "stories": 47,
   "sources_ok": 26,
-  "sources_failed": [
-    "Pakistan gold rate"
-  ]
+  "sources_failed": []
 }
