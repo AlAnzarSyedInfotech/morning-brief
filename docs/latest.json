@@ -22,8 +22,9 @@
   ],
   "pricing_confirmed": 0,
   "pricing_reported": 0,
-  "events": 0,
-  "offers": 0,
+  "events": 5,
+  "next_event": "Microsoft Ignite 2026 in 4 days",
+  "offers": 1,
   "usd_open_market": {
     "code": "USD",
     "buy": 277.09,
@@ -35,7 +36,9 @@
     "change": 2055.96,
     "change_pct": 0.81
   },
-  "stories": 41,
-  "sources_ok": 23,
-  "sources_failed": []
+  "stories": 46,
+  "sources_ok": 26,
+  "sources_failed": [
+    "Pakistan gold rate"
+  ]
 }
