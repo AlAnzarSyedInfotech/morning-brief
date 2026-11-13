@@ -230,10 +230,10 @@ footer p { margin: 0; }
   <div class="mk-sub">
     <h3>Gold</h3>
     <table><tbody>
-      <tr><td>24K per tola (Pakistan)</td><td class="r">{% if markets.gold_pk %}Rs {{ '{:,.0f}'.format(markets.gold_pk.price) }}{% else %}n/a{% endif %}</td></tr>
+      <tr><td>24K per tola (Pakistan)</td><td class="r">{% if markets.gold_pk %}{% if markets.gold_pk.estimated %}≈ {% endif %}Rs {{ '{:,.0f}'.format(markets.gold_pk.price) }}{% else %}n/a{% endif %}</td></tr>
       <tr><td>International, per ounce</td><td class="r">{% if markets.gold_intl %}US$ {{ '{:,.2f}'.format(markets.gold_intl.price) }}{% else %}n/a{% endif %}</td></tr>
     </tbody></table>
-    {% if markets.gold_pk %}<p class="src"><span class="g gB">B</span> Pakistan rate as reported by <a href="{{ markets.gold_pk.link }}" target="_blank" rel="noopener">{{ markets.gold_pk.source }}</a> (APGJSA rates)</p>{% else %}<p class="src">No Pakistan gold rate report found in the last 3 days.</p>{% endif %}
+    {% if markets.gold_pk and markets.gold_pk.estimated %}<p class="src"><span class="tag">Estimate</span> Official APGJSA rate not found today. Estimated from the international price plus a US${{ markets.gold_pk.premium }} premium, at the open market USD selling rate. Check the official rate before buying or selling.</p>{% elif markets.gold_pk %}<p class="src"><span class="g gB">B</span> Pakistan rate as reported by <a href="{{ markets.gold_pk.link }}" target="_blank" rel="noopener">{{ markets.gold_pk.source }}</a> (APGJSA rates)</p>{% else %}<p class="src">No Pakistan gold rate report found in the last 3 days.</p>{% endif %}
     {% if markets.gold_intl %}<p class="src"><span class="g gC">C</span> International price from <a href="{{ markets.gold_intl.link }}" target="_blank" rel="noopener">{{ markets.gold_intl.source }}</a></p>{% endif %}
   </div>
 
