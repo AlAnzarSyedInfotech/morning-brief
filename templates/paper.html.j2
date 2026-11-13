@@ -33,7 +33,19 @@ h1.mast { margin: 0; text-align: center; font-family: var(--serif); font-weight:
 .tag { border: 1px solid #8C887E; padding: 0 6px; border-radius: 4px; font-size: 12px; }
 .columns { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
 main { flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
-aside { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding: 24px; background: var(--tint); border-radius: 8px; }
+.sidecol { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+aside { display: flex; flex-direction: column; gap: 20px; padding: 24px; background: var(--tint); border-radius: 8px; }
+.mk h3 { margin: 0 0 6px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.mk table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+.mk th { text-align: left; font-weight: 600; font-size: 12px; color: var(--muted); padding: 4px 0; border-bottom: 1px solid #CFCBC0; }
+.mk td { padding: 5px 0; border-bottom: 1px solid #E2DED4; }
+.mk th.r, .mk td.r { text-align: right; padding-left: 12px; white-space: nowrap; }
+.mk .src { margin: 6px 0 0; font-size: 12px; color: var(--muted); }
+.mk .src a { color: var(--muted); text-decoration: underline; }
+.mk .big { font-size: 20px; font-weight: 600; font-family: var(--serif); }
+.up { color: #1B6E3A; }
+.down { color: #A1251B; }
+.mk-sub { display: flex; flex-direction: column; gap: 4px; }
 .kicker { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
 .lead { display: flex; flex-direction: column; gap: 12px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); }
 .lead h2 { margin: 0; font-family: var(--serif); font-size: clamp(28px, 4vw, 40px); line-height: 1.15; font-weight: 700; }
@@ -98,6 +110,7 @@ footer p { margin: 0; }
       <a href="#industry">Industry &amp; Clients</a>
       <a href="#global">Global AI Agenda</a>
       <a href="#side">Off the Clock</a>
+      <a href="#markets">Markets</a>
     </nav>
     <div class="legend">
       <span>Source grade:</span>
@@ -175,6 +188,7 @@ footer p { margin: 0; }
   </section>
 </main>
 
+<div class="sidecol">
 <aside id="side" aria-label="Off the Clock">
   <div>
     <h2>Off the Clock</h2>
@@ -183,6 +197,82 @@ footer p { margin: 0; }
   {% for s in sections.side %}{{ story(s, summary=false) }}{% endfor %}
   {% if not sections.side %}{{ empty_note() }}{% endif %}
 </aside>
+
+{% macro chg(v, suffix="%") -%}
+<span class="{{ 'up' if v > 0 else ('down' if v < 0 else '') }}">{{ '+' if v > 0 else '' }}{{ '{:,.2f}'.format(v) }}{{ suffix }}</span>
+{%- endmacro %}
+{% macro stock_table(rows, label) -%}
+<table><thead><tr><th>{{ label }}</th><th class="r">Price (Rs)</th><th class="r">Change</th></tr></thead><tbody>
+{% for s in rows %}<tr><td title="{{ s.name }}">{{ s.symbol }}</td><td class="r">{{ '{:,.2f}'.format(s.price) }}</td><td class="r">{{ chg(s.change_pct) }}</td></tr>{% endfor %}
+</tbody></table>
+{%- endmacro %}
+
+{% if markets.enabled %}
+<aside id="markets" aria-label="Markets" class="mk">
+  <div>
+    <h2 style="margin:0;font-family:var(--serif);font-size:26px">Markets</h2>
+    <p class="empty">Daily snapshot taken when the paper was built, not live prices. For information only, not investment advice.</p>
+  </div>
+
+  <div class="mk-sub">
+    <h3>Open market rates (PKR)</h3>
+    {% if markets.fx %}
+    <table><thead><tr><th>Currency</th><th class="r">Buying</th><th class="r">Selling</th></tr></thead><tbody>
+    {% for r in markets.fx.rows %}<tr><td>{{ r.code }}</td><td class="r">{{ '{:,.2f}'.format(r.buy) }}</td><td class="r">{{ '{:,.2f}'.format(r.sell) }}</td></tr>{% endfor %}
+    </tbody></table>
+    <p class="src"><span class="g gA">A</span> <a href="{{ markets.fx.link }}" target="_blank" rel="noopener">{{ markets.fx.source }}</a>, closing rates of {{ markets.fx.date }}</p>
+    {% else %}<p class="empty">Not available today.</p>{% endif %}
+  </div>
+
+  <div class="mk-sub">
+    <h3>Gold</h3>
+    <table><tbody>
+      <tr><td>24K per tola (Pakistan)</td><td class="r">{% if markets.gold_pk %}Rs {{ '{:,.0f}'.format(markets.gold_pk.price) }}{% else %}n/a{% endif %}</td></tr>
+      <tr><td>International, per ounce</td><td class="r">{% if markets.gold_intl %}US$ {{ '{:,.2f}'.format(markets.gold_intl.price) }}{% else %}n/a{% endif %}</td></tr>
+    </tbody></table>
+    {% if markets.gold_pk %}<p class="src"><span class="g gB">B</span> Pakistan rate as reported by <a href="{{ markets.gold_pk.link }}" target="_blank" rel="noopener">{{ markets.gold_pk.source }}</a> (APGJSA rates)</p>{% else %}<p class="src">No Pakistan gold rate report found in the last 48 hours.</p>{% endif %}
+    {% if markets.gold_intl %}<p class="src"><span class="g gC">C</span> International price from <a href="{{ markets.gold_intl.link }}" target="_blank" rel="noopener">{{ markets.gold_intl.source }}</a></p>{% endif %}
+  </div>
+
+  <div class="mk-sub">
+    <h3>PSX indices</h3>
+    {% if markets.indices %}
+    <table><tbody>
+    {% for i in markets.indices %}<tr><td>{{ {'KSE100': 'KSE-100', 'KMI30': 'KMI-30 (Meezan)'}.get(i.name, i.name) }}</td><td class="r big">{{ '{:,.2f}'.format(i.value) }}</td><td class="r">{{ chg(i.change_pct) }}</td></tr>{% endfor %}
+    </tbody></table>
+    {% else %}<p class="empty">Not available today.</p>{% endif %}
+  </div>
+
+  {% if markets.kse_top %}
+  <div class="mk-sub">
+    <h3>KSE-100: largest 10 companies</h3>
+    {{ stock_table(markets.kse_top, "Symbol") }}
+  </div>
+  {% endif %}
+  {% if markets.kse_gainers or markets.kse_losers %}
+  <div class="mk-sub">
+    <h3>KSE-100: top gainers</h3>
+    {{ stock_table(markets.kse_gainers, "Symbol") }}
+  </div>
+  <div class="mk-sub">
+    <h3>KSE-100: top losers</h3>
+    {{ stock_table(markets.kse_losers, "Symbol") }}
+  </div>
+  {% endif %}
+  {% if markets.kmi_gainers or markets.kmi_losers %}
+  <div class="mk-sub">
+    <h3>KMI-30: top gainers</h3>
+    {{ stock_table(markets.kmi_gainers, "Symbol") }}
+  </div>
+  <div class="mk-sub">
+    <h3>KMI-30: top losers</h3>
+    {{ stock_table(markets.kmi_losers, "Symbol") }}
+  </div>
+  {% endif %}
+  <p class="src"><span class="g gA">A</span> Stock and index data from the <a href="https://dps.psx.com.pk/" target="_blank" rel="noopener">PSX Data Portal</a>, last trading session.</p>
+</aside>
+{% endif %}
+</div>
 </div>
 
 <footer>
