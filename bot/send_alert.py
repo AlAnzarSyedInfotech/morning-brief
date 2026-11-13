@@ -19,6 +19,17 @@ ROOT = Path(__file__).resolve().parent.parent
 REQUIRED = ["SMTP_HOST", "SMTP_PORT", "SMTP_USER", "SMTP_PASSWORD", "ALERT_TO", "PAGE_URL"]
 
 
+def markets_line(data: dict) -> str:
+    parts = []
+    usd = data.get("usd_open_market")
+    if usd:
+        parts.append(f"USD open market {usd['buy']:,.2f} / {usd['sell']:,.2f}")
+    kmi = data.get("kmi30")
+    if kmi:
+        parts.append(f"KMI-30 {kmi['value']:,.2f} ({kmi['change_pct']:+.2f}%)")
+    return "Markets: " + ("; ".join(parts) if parts else "see the paper")
+
+
 def main() -> None:
     missing = [name for name in REQUIRED if not os.environ.get(name)]
     if missing:
@@ -32,7 +43,8 @@ def main() -> None:
     text = (
         f"Your Morning Brief is ready: {data['date']}\n\n"
         f"Pricing and licensing: {data['pricing_confirmed']} confirmed, {data['pricing_reported']} reported\n"
-        f"Events and certification: {data.get('events', 0)} events, {data.get('offers', 0)} voucher offers\n\n"
+        f"Events and certification: {data.get('events', 0)} events, {data.get('offers', 0)} voucher offers\n"
+        f"{markets_line(data)}\n\n"
         "Top stories today:\n" + "\n".join(lines_text) +
         f"\n\nOpen today's paper: {page_url}\n"
     )
@@ -49,7 +61,8 @@ def main() -> None:
   <h1 style="font-family:Georgia,serif;font-size:24px;margin:4px 0 16px">Your Morning Brief is ready</h1>
   <p style="background:#EFEDE6;padding:10px 12px;border-radius:6px">
     Pricing and licensing: {data['pricing_confirmed']} confirmed, {data['pricing_reported']} reported, not confirmed<br>
-    Events and certification: {data.get('events', 0)} events, {data.get('offers', 0)} voucher offers
+    Events and certification: {data.get('events', 0)} events, {data.get('offers', 0)} voucher offers<br>
+    {html.escape(markets_line(data))}
   </p>
   <p style="font-weight:600;margin-bottom:6px">Top stories today</p>
   <ol style="padding-left:20px">{items_html}</ol>
