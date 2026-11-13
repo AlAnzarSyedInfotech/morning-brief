@@ -289,8 +289,8 @@ feeds:
     section: industry
     kicker: Fintech
     max_items: 2
-    enabled: true
-    verified: listed on feedspot fintech feeds (2026). Confirm with Check feeds.
+    enabled: false
+    verified: switched off. Check feeds showed its newest item was about 45 days old (Nov 2026).
 
   - name: Fintech News Singapore
     url: https://fintechnews.sg/feed
