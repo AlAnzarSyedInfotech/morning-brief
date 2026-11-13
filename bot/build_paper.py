@@ -106,7 +106,6 @@ def fetch_feed(feed: dict) -> list:
 
 def collect(config: dict, now: datetime) -> tuple[list[dict], dict]:
     settings = config["settings"]
-    cutoff = now - timedelta(hours=settings["window_hours"])
     stories: list[dict] = []
     stats = {"checked": 0, "ok": 0, "failed": [], "no_date": 0}
 
@@ -122,6 +121,8 @@ def collect(config: dict, now: datetime) -> tuple[list[dict], dict]:
             continue
         stats["ok"] += 1
 
+        cutoff = now - timedelta(hours=feed.get("window_hours", settings["window_hours"]))
+        excludes = settings.get("exclude_keywords", []) + feed.get("exclude_keywords", [])
         taken = 0
         for entry in entries:
             if taken >= feed.get("max_items", 4):
@@ -140,6 +141,8 @@ def collect(config: dict, now: datetime) -> tuple[list[dict], dict]:
             keywords = feed.get("include_keywords")
             if keywords and not keyword_match(f"{title} {summary}", keywords):
                 continue
+            if excludes and keyword_match(f"{title} {summary}", excludes):
+                continue
             stories.append({
                 "title": title,
                 "link": link,
@@ -150,6 +153,7 @@ def collect(config: dict, now: datetime) -> tuple[list[dict], dict]:
                 "kicker": feed["kicker"],
                 "tag": feed.get("tag", ""),
                 "microsoft_official": bool(feed.get("microsoft_official")),
+                "lead_eligible": feed.get("lead_eligible", True),
                 "published": published,
                 "age": hours_ago(published, now),
                 "also": [],
@@ -257,9 +261,11 @@ def build_sections(stories: list[dict], limits: dict) -> dict:
 
 
 def pick_lead(sections: dict) -> dict | None:
-    """Lead = newest grade-A Microsoft story; otherwise the top global story."""
+    """Lead = newest grade-A Microsoft announcement (blogs, not small roadmap
+    or update items); otherwise the best story from the next section."""
     for name in ("microsoft", "global", "industry"):
-        candidates = [s for s in sections[name] if s["grade"] == "A"] or sections[name]
+        pool = [s for s in sections[name] if s["lead_eligible"]] or sections[name]
+        candidates = [s for s in pool if s["grade"] == "A"] or pool
         if candidates:
             lead = max(candidates, key=lambda s: s["published"])
             sections[name].remove(lead)
