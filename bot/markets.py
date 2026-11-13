@@ -27,7 +27,9 @@ BROWSER_HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/pdf,application/json;q=0.9,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.9",
 }
-ECAP_LOG: list[str] = []  # what the last open-market lookup tried (shown by Check feeds)
+ECAP_LOG: list[str] = []
+GOLD_LOG: list[str] = []  # what the last Aaj News gold page lookup found (shown by Check feeds)
+TOLA_PER_OUNCE = 11.6638038 / 31.1034768  # 1 tola = 11.6638 g; 1 troy ounce = 31.1035 g  # what the last open-market lookup tried (shown by Check feeds)
 MONTHS = ["january", "february", "march", "april", "may", "june", "july",
           "august", "september", "october", "november", "december"]
 
@@ -153,14 +155,21 @@ def pakistan_gold_page(local_now: datetime, max_age_days: int = 3) -> dict | Non
 
     The page lists headlines followed by "Published 25 Oct, 2025 03:11pm".
     """
+    GOLD_LOG.clear()
     for url in GOLD_PAGES:
+        host = url.split("/")[2]
         try:
             raw = _get(url).text
+        except requests.HTTPError as exc:
+            GOLD_LOG.append(f"{host}: HTTP {exc.response.status_code}")
+            continue
         except Exception as exc:
-            print(f"[markets] gold page {url}: {exc}", file=sys.stderr)
+            GOLD_LOG.append(f"{host}: {type(exc).__name__}")
             continue
         text = re.sub(r"\s+", " ", html_unescape(re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", raw))))
         parts = re.split(r"Published (\d{1,2} \w{3}, \d{4})", text)
+        GOLD_LOG.append(f"{host}: page {len(raw)//1000} KB, {len(parts)//2} dated items, "
+                        f"{text.lower().count('tola')} mentions of tola")
         # parts = [text0, date0, text1, date1, ...]; the headline for date_i ends text_i
         for i in range(0, len(parts) - 1, 2):
             headline = parts[i][-300:]
@@ -272,12 +281,21 @@ def build_markets(config: dict, now: datetime, local_now: datetime, news_entries
         panel["failed"].append("Open market currency rates")
         print(f"[markets] fx: {exc}", file=sys.stderr)
 
-    panel["gold_pk"] = pakistan_gold(news_entries, now) or pakistan_gold_page(local_now)
-    if panel["gold_pk"] is None:
-        panel["failed"].append("Pakistan gold rate")
     panel["gold_intl"] = international_gold()
     if panel["gold_intl"] is None:
         panel["failed"].append("International gold price")
+
+    panel["gold_pk"] = pakistan_gold(news_entries, now) or pakistan_gold_page(local_now)
+    if panel["gold_pk"] is None and panel["gold_intl"] and panel.get("fx"):
+        # Estimate: APGJSA rates follow the international price plus a premium
+        # (reported as $20 per ounce since Sept 2026), converted to PKR per tola.
+        usd = next((r for r in panel["fx"]["rows"] if r["code"] == "USD"), None)
+        if usd:
+            premium = cfg.get("gold_premium_usd", 20)
+            panel["gold_pk"] = {"price": (panel["gold_intl"]["price"] + premium) * usd["sell"] * TOLA_PER_OUNCE,
+                                "estimated": True, "premium": premium}
+    if panel["gold_pk"] is None:
+        panel["failed"].append("Pakistan gold rate")
 
     try:
         panel["indices"] = psx_index_levels(cfg.get("indices", ["KSE100", "KMI30"]))
