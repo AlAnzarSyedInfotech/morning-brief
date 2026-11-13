@@ -46,7 +46,7 @@ def main() -> None:
     local = now + timedelta(hours=config["settings"]["utc_offset_hours"])
     checks = [
         ("Open market rates (ECAP via SBP)", lambda: markets.open_market_rates(local, ["USD", "EUR", "GBP", "AED", "SAR"]),
-         lambda r: f"{len(r['rows'])} currencies, {r['date']}" if r else "none found in last 7 days"),
+         lambda r: f"{len(r['rows'])} currencies, {r['date']}" if r else "none found. Tried: " + "; ".join(sorted(set(markets.ECAP_LOG)))[:300]),
         ("International gold", markets.international_gold, lambda r: f"{r['price']:,.2f} USD from {r['source']}" if r else "no source answered"),
         ("PSX index levels", lambda: markets.psx_index_levels(["KSE100", "KMI30"]), lambda r: ", ".join(i["name"] for i in r) or "none parsed"),
         ("PSX KSE-100 stocks", lambda: markets.psx_index_stocks("KSE100"), lambda r: f"{len(r)} stocks"),
