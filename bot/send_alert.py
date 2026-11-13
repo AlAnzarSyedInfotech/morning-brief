@@ -43,7 +43,8 @@ def main() -> None:
     text = (
         f"Your Morning Brief is ready: {data['date']}\n\n"
         f"Pricing and licensing: {data['pricing_confirmed']} confirmed, {data['pricing_reported']} reported\n"
-        f"Events and certification: {data.get('events', 0)} events, {data.get('offers', 0)} voucher offers\n"
+        f"Events and certification: {data.get('events', 0)} events, {data.get('offers', 0)} voucher offers"
+        + (f"; next: {data['next_event']}" if data.get("next_event") else "") + "\n"
         f"{markets_line(data)}\n\n"
         "Top stories today:\n" + "\n".join(lines_text) +
         f"\n\nOpen today's paper: {page_url}\n"
@@ -61,7 +62,7 @@ def main() -> None:
   <h1 style="font-family:Georgia,serif;font-size:24px;margin:4px 0 16px">Your Morning Brief is ready</h1>
   <p style="background:#EFEDE6;padding:10px 12px;border-radius:6px">
     Pricing and licensing: {data['pricing_confirmed']} confirmed, {data['pricing_reported']} reported, not confirmed<br>
-    Events and certification: {data.get('events', 0)} events, {data.get('offers', 0)} voucher offers<br>
+    Events and certification: {data.get('events', 0)} events, {data.get('offers', 0)} voucher offers{html.escape("; next: " + data["next_event"]) if data.get("next_event") else ""}<br>
     {html.escape(markets_line(data))}
   </p>
   <p style="font-weight:600;margin-bottom:6px">Top stories today</p>
