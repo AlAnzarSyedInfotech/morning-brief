@@ -14,6 +14,7 @@
 #   exclude_keywords  optional; drop stories from this feed that contain any of these words
 #   lead_eligible     optional; false = never used as the lead story (for feeds of small updates)
 #   window_hours      optional; look further back than the default for this feed only
+#   markets_only      optional; true = read only for the Markets panel (gold rate), not shown as stories
 #
 # "verified" notes record where the feed address was confirmed. Run the
 # "Check feeds" workflow any time to test every feed, including candidates.
@@ -25,7 +26,7 @@ settings:
   page_title: The Morning Brief
   max_per_section:
     microsoft: 8
-    industry: 8
+    industry: 10
     global: 8
     side: 6
   pricing_keywords:
@@ -47,7 +48,13 @@ settings:
 
   # Events & Certification Desk
   # A story counts as an event if it matches an event word AND a topic word.
+  events_lookback_days: 7   # events and voucher offers announced in the last 7 days
   event_keywords:
+    - ignite
+    - money20/20
+    - fintech festival
+    - fintech week
+    - keynote
     - virtual training day
     - webinar
     - livestream
@@ -63,6 +70,9 @@ settings:
     - summit
     - bootcamp
   event_topic_keywords:
+    - fintech
+    - banking
+    - payments
     - ai
     - artificial intelligence
     - copilot
@@ -82,6 +92,17 @@ settings:
     - free certification
     - certification offer
     - 50% off
+
+# ---------------- Upcoming events calendar ----------------
+# Shown in the Events & Certification Desk until the event ends.
+# Add your own: name, start and end (YYYY-MM-DD), link, optional note.
+upcoming_events:
+  - name: Microsoft Ignite 2026
+    start: 2026-11-17
+    end: 2026-11-20
+    link: https://ignite.microsoft.com/en-US/home
+    note: San Francisco and online; free digital pass
+    verified: dates and free digital pass from Microsoft Tech Community posts (Nov 2026)
 
 # ---------------- Markets panel (below Off the Clock) ----------------
 # Daily snapshot, not live prices. Sources: ECAP open market rates (via SBP),
@@ -251,6 +272,43 @@ feeds:
     max_items: 3
     enabled: true
     verified: listed on feedspot Pakistan feeds (2026)
+
+  - name: The Fintech Times
+    url: https://thefintechtimes.com/feed
+    grade: B
+    section: industry
+    kicker: Fintech
+    max_items: 3
+    enabled: true
+    verified: listed on feedspot fintech feeds (2026). Confirm with Check feeds.
+
+  - name: TechCrunch (Fintech)
+    url: https://techcrunch.com/tag/fintech/feed
+    grade: B
+    section: industry
+    kicker: Fintech
+    max_items: 2
+    enabled: true
+    verified: listed on feedspot fintech feeds (2026). Confirm with Check feeds.
+
+  - name: Fintech News Singapore
+    url: https://fintechnews.sg/feed
+    grade: B
+    section: industry
+    kicker: Fintech and AI (Asia)
+    include_keywords: [ai, artificial intelligence, generative, agent, digital bank, islamic, pakistan]
+    max_items: 2
+    enabled: true
+    verified: listed on feedspot Singapore fintech feeds (2026). Confirm with Check feeds.
+
+  - name: Business Recorder (Markets)
+    url: https://www.brecorder.com/feeds/pakistan/markets
+    grade: B
+    section: industry
+    kicker: Pakistan markets
+    markets_only: true
+    enabled: true
+    verified: feed returned in search results (Nov 2026). Used to find the daily APGJSA gold rate report. Confirm with Check feeds.
 
   # ---------------- Global AI Agenda ----------------
   - name: The Verge (AI)
