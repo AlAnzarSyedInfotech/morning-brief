@@ -10,6 +10,7 @@ from __future__ import annotations
 import io
 import re
 import sys
+import time
 from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 
@@ -17,14 +18,32 @@ import requests
 from pypdf import PdfReader
 
 HEADERS = {"User-Agent": "MorningBriefBot/1.0 (personal news digest)"}
+# Some data sites drop connections from unknown clients, so data requests
+# identify as a normal browser.
+BROWSER_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/pdf,application/json;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+}
+ECAP_LOG: list[str] = []  # what the last open-market lookup tried (shown by Check feeds)
 MONTHS = ["january", "february", "march", "april", "may", "june", "july",
           "august", "september", "october", "november", "december"]
 
 
-def _get(url: str, timeout: int = 25) -> requests.Response:
-    response = requests.get(url, headers=HEADERS, timeout=timeout)
-    response.raise_for_status()
-    return response
+def _get(url: str, timeout: int = 30, tries: int = 3) -> requests.Response:
+    """GET with browser headers and up to 3 tries (data sites can drop connections)."""
+    last_exc: Exception | None = None
+    for attempt in range(tries):
+        try:
+            response = requests.get(url, headers=BROWSER_HEADERS, timeout=timeout)
+            response.raise_for_status()
+            return response
+        except requests.HTTPError:
+            raise  # a 404 or 403 will not change on retry
+        except Exception as exc:
+            last_exc = exc
+            time.sleep(3 * (attempt + 1))
+    raise last_exc
 
 
 def _num(text: str) -> float:
@@ -37,9 +56,11 @@ def ecap_urls(day: datetime) -> list[str]:
     """Known SBP addresses for ECAP's daily open market rates PDF."""
     month = MONTHS[day.month - 1]
     mon = day.strftime("%b")
+    base = "https://www.sbp.org.pk/assets/document/open-market-closing-exchange-rates"
     return [
-        f"https://www.sbp.org.pk/assets/document/open-market-closing-exchange-rates-{day:%d}-{month}-{day:%Y}.pdf",
-        f"https://www.sbp.org.pk/ecodata/rates/ECAP/{day:%Y}/{mon}/{day:%d}-{mon}-{day:%y}.pdf",
+        f"{base}-{day:%d}-{month}-{day:%Y}.pdf",               # e.g. ...-04-september-2026.pdf
+        f"{base}-{day:%d}-{month.capitalize()}-{day:%Y}.pdf",  # SBP sometimes capitalises the month
+        f"https://www.sbp.org.pk/ecodata/rates/ECAP/{day:%Y}/{mon}/{day:%d}-{mon}-{day:%y}.pdf",  # older format
     ]
 
 
@@ -54,15 +75,21 @@ def parse_ecap(text: str, currencies: list[str]) -> list[dict]:
 
 def open_market_rates(local_now: datetime, currencies: list[str]) -> dict | None:
     """Latest ECAP closing rates, looking back up to 7 days (weekends, holidays)."""
+    ECAP_LOG.clear()
     for back in range(0, 8):
         day = local_now - timedelta(days=back)
         for url in ecap_urls(day):
             try:
-                response = _get(url)
+                response = _get(url, tries=1)
                 if not response.content.startswith(b"%PDF"):
+                    ECAP_LOG.append(f"{day:%d %b}: not a PDF")
                     continue
                 text = "\n".join(page.extract_text() or "" for page in PdfReader(io.BytesIO(response.content)).pages)
-            except Exception:
+            except requests.HTTPError as exc:
+                ECAP_LOG.append(f"{day:%d %b}: HTTP {exc.response.status_code}")
+                continue
+            except Exception as exc:
+                ECAP_LOG.append(f"{day:%d %b}: {type(exc).__name__}")
                 continue
             rows = parse_ecap(text, currencies)
             if rows:
