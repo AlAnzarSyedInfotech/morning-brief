@@ -166,28 +166,43 @@ def pakistan_gold_page(local_now: datetime, max_age_days: int = 3) -> dict | Non
         except Exception as exc:
             GOLD_LOG.append(f"{host}: {type(exc).__name__}")
             continue
-        text = re.sub(r"\s+", " ", html_unescape(re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", raw))))
-        parts = re.split(r"Published (\d{1,2} \w{3}, \d{4})", text)
-        GOLD_LOG.append(f"{host}: page {len(raw)//1000} KB, {len(parts)//2} dated items, "
-                        f"{text.lower().count('tola')} mentions of tola")
-        # parts = [text0, date0, text1, date1, ...]; the headline for date_i ends text_i
-        for i in range(0, len(parts) - 1, 2):
-            headline = parts[i][-300:]
-            if "tola" not in headline.lower():
-                continue
-            amounts = [_num(a) for a in re.findall(r"Rs\.?\s?([\d,]{6,9})", headline)]
+        raw = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", raw)
+        found = 0
+        sample = ""
+        # Look at each mention of "tola" in the page (newest stories come first)
+        for match in re.finditer(r"tola", raw, flags=re.I):
+            window = raw[max(0, match.start() - 400): match.start() + 600]
+            text = re.sub(r"\s+", " ", html_unescape(re.sub(r"<[^>]+>", " ", window)))
+            # prefer the new rate ("... to Rs 436,962"), else the first per-tola sized amount
+            target = re.search(r"to Rs\.?\s?([\d,]{6,9})", text)
+            amounts = ([_num(target.group(1))] if target else []) + [_num(a) for a in re.findall(r"Rs\.?\s?([\d,]{6,9})", text)]
             amounts = [a for a in amounts if 100_000 <= a <= 3_000_000]
             if not amounts:
                 continue
+            found += 1
+            sample = sample or text.strip()[:120]
+            published = None
+            iso = re.search(r"(20\d\d-\d\d-\d\d)", window)
+            human = re.search(r"(\d{1,2} [A-Z][a-z]{2},? \d{4})", text)
             try:
-                published = datetime.strptime(parts[i + 1], "%d %b, %Y")
+                if iso:
+                    published = datetime.strptime(iso.group(1), "%Y-%m-%d")
+                elif human:
+                    published = datetime.strptime(human.group(1).replace(",", ""), "%d %b %Y")
             except ValueError:
-                continue
+                published = None
+            if published is None and re.search(r"\b\d{1,2} (minutes?|hours?) ago", text):
+                published = local_now.replace(tzinfo=None)
+            if published is None:
+                continue  # freshness cannot be confirmed
             if (local_now.replace(tzinfo=None) - published).days > max_age_days:
-                return None  # newest report is too old to show
-            return {"price": max(amounts), "title": headline.strip()[-160:], "link": url,
-                    "source": "Aaj News", "published": published.replace(tzinfo=timezone.utc),
-                    "date": parts[i + 1]}
+                GOLD_LOG.append(f"{host}: newest per-tola report dated {published:%d %b %Y}, too old")
+                return None
+            return {"price": amounts[0], "title": "",
+                    "link": url, "source": "Aaj News", "published": published.replace(tzinfo=timezone.utc),
+                    "date": published.strftime("%d %b %Y")}
+        GOLD_LOG.append(f"{host}: page {len(raw)//1000} KB, {found} per-tola amounts but no readable date"
+                        + (f"; first: {sample}" if sample else ""))
     return None
 
 
