@@ -25,7 +25,7 @@ def main() -> None:
         on = "yes" if feed.get("enabled") else "no"
         try:
             entries = fetch_feed(feed)
-            dates = [d for d in (entry_time(e) for e in entries) if d]
+            dates = [d for d in (entry_time(e) for e in entries) if d and d <= now]
             newest = f"{int((now - max(dates)).total_seconds() // 3600)} h ago" if dates else "no dates"
             rows.append(f"| {feed['name']} | {on} | OK | {len(entries)} | {newest} |")
         except Exception as exc:
