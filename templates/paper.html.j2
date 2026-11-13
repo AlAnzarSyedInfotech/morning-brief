@@ -42,7 +42,7 @@ aside { display: flex; flex-direction: column; gap: 20px; padding: 24px; backgro
 .mk th.r, .mk td.r { text-align: right; padding-left: 12px; white-space: nowrap; }
 .mk .src { margin: 6px 0 0; font-size: 12px; color: var(--muted); }
 .mk .src a { color: var(--muted); text-decoration: underline; }
-.mk .big { font-size: 20px; font-weight: 600; font-family: var(--serif); }
+.mk .big { font-size: 17px; font-weight: 600; font-family: var(--serif); }
 .up { color: #1B6E3A; }
 .down { color: #A1251B; }
 .mk-sub { display: flex; flex-direction: column; gap: 4px; }
@@ -152,19 +152,22 @@ footer p { margin: 0; }
     <div class="desk">
       <div class="desk-row" style="justify-content: space-between">
         <h3>Events &amp; Certification Desk</h3>
-        <span class="meta">Microsoft AI and data sessions, and exam voucher offers</span>
+        <span class="meta">Microsoft, fintech and AI events, and exam voucher offers (last 7 days)</span>
       </div>
+      {% for c in coming_up %}
+      <div class="desk-row"><span class="g gA">Coming up</span>{% if c.link %}<a href="{{ c.link }}" target="_blank" rel="noopener">{{ c.name }}</a>{% else %}<span style="font-family:var(--serif);font-size:19px;font-weight:600;flex:1 1 320px">{{ c.name }}</span>{% endif %}<span class="meta">{{ c.dates }}, {{ c.when }}{% if c.note %}. {{ c.note }}{% endif %}</span></div>
+      {% endfor %}
       {% for s in offers %}
       <div class="desk-row"><span class="g gA">Voucher offer</span><a href="{{ s.link }}" target="_blank" rel="noopener">{{ s.title }}</a></div>
       {% endfor %}
       {% for s in events %}
-      <div class="desk-row"><span class="g gB">Event</span><a href="{{ s.link }}" target="_blank" rel="noopener">{{ s.title }}</a></div>
+      <div class="desk-row"><span class="g gB">{{ s.label }}</span><a href="{{ s.link }}" target="_blank" rel="noopener">{{ s.title }}</a><span class="meta">{{ s.source }}, {{ s.age }}</span></div>
       {% endfor %}
       {% for n in page_news %}
       <div class="desk-row"><span class="g gB">New on {{ n.page }}</span><a href="{{ n.link }}" target="_blank" rel="noopener">{{ n.text }}</a></div>
       {% endfor %}
-      {% if not offers and not events and not page_news %}
-      <p class="empty">No new Microsoft AI or data events, or voucher offers, found today.</p>
+      {% if not coming_up and not offers and not events and not page_news %}
+      <p class="empty">No upcoming events or voucher offers found this week.</p>
       {% endif %}
       <p class="empty">Voucher terms vary by offer and region; check eligibility on the offer page before registering.</p>
     </div>
@@ -230,7 +233,7 @@ footer p { margin: 0; }
       <tr><td>24K per tola (Pakistan)</td><td class="r">{% if markets.gold_pk %}Rs {{ '{:,.0f}'.format(markets.gold_pk.price) }}{% else %}n/a{% endif %}</td></tr>
       <tr><td>International, per ounce</td><td class="r">{% if markets.gold_intl %}US$ {{ '{:,.2f}'.format(markets.gold_intl.price) }}{% else %}n/a{% endif %}</td></tr>
     </tbody></table>
-    {% if markets.gold_pk %}<p class="src"><span class="g gB">B</span> Pakistan rate as reported by <a href="{{ markets.gold_pk.link }}" target="_blank" rel="noopener">{{ markets.gold_pk.source }}</a> (APGJSA rates)</p>{% else %}<p class="src">No Pakistan gold rate report found in the last 48 hours.</p>{% endif %}
+    {% if markets.gold_pk %}<p class="src"><span class="g gB">B</span> Pakistan rate as reported by <a href="{{ markets.gold_pk.link }}" target="_blank" rel="noopener">{{ markets.gold_pk.source }}</a> (APGJSA rates)</p>{% else %}<p class="src">No Pakistan gold rate report found in the last 3 days.</p>{% endif %}
     {% if markets.gold_intl %}<p class="src"><span class="g gC">C</span> International price from <a href="{{ markets.gold_intl.link }}" target="_blank" rel="noopener">{{ markets.gold_intl.source }}</a></p>{% endif %}
   </div>
 
