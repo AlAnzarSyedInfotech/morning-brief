@@ -83,6 +83,17 @@ settings:
     - certification offer
     - 50% off
 
+# ---------------- Markets panel (below Off the Clock) ----------------
+# Daily snapshot, not live prices. Sources: ECAP open market rates (via SBP),
+# PSX Data Portal, gold from news reports of APGJSA rates and a free gold API.
+markets:
+  enabled: true
+  currencies: [USD, EUR, GBP, AED, SAR]
+  indices: [KSE100, KMI30]
+  top_by_size: 10        # largest KSE-100 companies by market cap
+  kse100_movers: 10      # top gainers and top losers in KSE-100
+  kmi30_movers: 5        # top gainers and top losers in KMI-30
+
 # Words used to keep only relevant stories from broad Pakistan news feeds
 pakistan_filter: &pakistan_filter
   - bank
