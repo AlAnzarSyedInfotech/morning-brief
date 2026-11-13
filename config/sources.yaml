@@ -307,8 +307,8 @@ feeds:
     section: industry
     kicker: Pakistan markets
     markets_only: true
-    enabled: true
-    verified: feed returned in search results (Nov 2026). Used to find the daily APGJSA gold rate report. Confirm with Check feeds.
+    enabled: false
+    verified: switched off. Check feeds showed its newest item was about 14 months old (Nov 2026).
 
   # ---------------- Global AI Agenda ----------------
   - name: The Verge (AI)
