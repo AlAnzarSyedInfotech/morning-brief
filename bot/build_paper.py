@@ -60,7 +60,9 @@ def keyword_match(text: str, keywords: list[str]) -> bool:
     """True if any keyword appears at the start of a word in text."""
     low = text.lower()
     for kw in keywords:
-        if re.search(r"\b" + re.escape(kw.lower()), low):
+        # short words like "ai" must match whole words (not "aim" or "said")
+        pattern = r"\b" + re.escape(kw.lower()) + (r"\b" if len(kw) <= 3 else "")
+        if re.search(pattern, low):
             return True
     return False
 
@@ -127,10 +129,15 @@ def collect(config: dict, now: datetime) -> tuple[list[dict], dict]:
         stats["ok"] += 1
         for entry in entries:
             published = entry_time(entry)
-            if published and now - timedelta(hours=48) <= published <= now + timedelta(hours=1):
+            lookback = timedelta(days=max(2, settings.get("events_lookback_days", 7)))
+            if published and now - lookback <= published <= now + timedelta(hours=1):
                 RAW_ENTRIES.append({"title": clean_text(entry.get("title", "")), "summary": clean_text(entry.get("summary", "")),
-                                    "link": entry.get("link", ""), "source": feed["name"], "published": published})
+                                    "link": entry.get("link", ""), "source": feed["name"], "published": published,
+                                    "grade": feed["grade"], "microsoft_official": bool(feed.get("microsoft_official")),
+                                    "age": hours_ago(published, now)})
 
+        if feed.get("markets_only"):
+            continue  # read for the Markets panel only (entries saved above)
         cutoff = now - timedelta(hours=feed.get("window_hours", settings["window_hours"]))
         excludes = settings.get("exclude_keywords", []) + feed.get("exclude_keywords", [])
         taken = 0
@@ -207,19 +214,56 @@ def pricing_desk(stories: list[dict], keywords: list[str]) -> tuple[list[dict], 
     return confirmed[:3], reported[:3]
 
 
-def events_desk(stories: list[dict], settings: dict) -> tuple[list[dict], list[dict]]:
-    """Microsoft AI/data events and certification voucher offers."""
+def events_desk(entries: list[dict], settings: dict, now: datetime) -> tuple[list[dict], list[dict]]:
+    """Events (Microsoft, fintech and AI) and Microsoft exam voucher offers
+    announced in the last few days (events_lookback_days, default 7)."""
+    cutoff = now - timedelta(days=settings.get("events_lookback_days", 7))
+    excludes = settings.get("exclude_keywords", [])
     events, offers = [], []
-    for story in stories:
-        text = f"{story['title']} {story['summary']}"
-        about_microsoft = story["microsoft_official"] or keyword_match(text, ["microsoft", "azure", "copilot", "fabric"])
-        if not about_microsoft:
+    seen: list[str] = []
+    for e in sorted(entries, key=lambda x: (GRADE_RANK[x["grade"]], -x["published"].timestamp())):
+        if e["published"] < cutoff:
             continue
-        if keyword_match(text, settings["voucher_keywords"]):
-            offers.append(story)
-        elif keyword_match(text, settings["event_keywords"]) and keyword_match(text, settings["event_topic_keywords"]):
-            events.append(story)
-    return events[:4], offers[:4]
+        text = f"{e['title']} {e['summary']}"
+        if excludes and keyword_match(text, excludes):
+            continue
+        key = normalise_title(e["title"])
+        if any(same_story(key, k) for k in seen):
+            continue
+        about_microsoft = e["microsoft_official"] or keyword_match(text, ["microsoft", "azure", "copilot", "fabric", "ignite"])
+        if about_microsoft and keyword_match(text, settings["voucher_keywords"]):
+            offers.append(e)
+            seen.append(key)
+        elif keyword_match(text, settings["event_keywords"]) and (about_microsoft or keyword_match(text, settings["event_topic_keywords"])):
+            # every Microsoft event counts; other events need a fintech, banking, AI or data topic
+            e = dict(e, label="Microsoft event" if about_microsoft else "Fintech and AI event")
+            events.append(e)
+            seen.append(key)
+    by_newest = lambda x: -x["published"].timestamp()
+    return sorted(events, key=by_newest)[:6], sorted(offers, key=by_newest)[:4]
+
+
+def upcoming_events(config: dict, local_now: datetime) -> list[dict]:
+    """Calendar entries from config that have not finished yet."""
+    today = local_now.date()
+    items = []
+    for ev in config.get("upcoming_events", []) or []:
+        try:
+            start = datetime.strptime(str(ev["start"]), "%Y-%m-%d").date()
+            end = datetime.strptime(str(ev.get("end", ev["start"])), "%Y-%m-%d").date()
+        except (KeyError, ValueError):
+            continue
+        if end < today:
+            continue
+        days = (start - today).days
+        if days > 0:
+            when = "tomorrow" if days == 1 else f"in {days} days"
+        else:
+            when = "happening now"
+        dates = start.strftime("%d %b").lstrip("0") if start == end else f"{start.strftime('%d %b').lstrip('0')} to {end.strftime('%d %b %Y').lstrip('0')}"
+        items.append({"name": ev["name"], "link": ev.get("link", ""), "note": ev.get("note", ""),
+                      "dates": dates, "when": when, "start": start})
+    return sorted(items, key=lambda x: x["start"])
 
 
 def page_lines(raw_html: str, keywords: list[str]) -> set[str]:
@@ -294,7 +338,8 @@ def main() -> None:
     stories, stats = collect(config, now)
     stories, merged = merge_duplicates(stories)
     confirmed, reported = pricing_desk(stories, settings["pricing_keywords"])
-    events, offers = events_desk(stories, settings)
+    events, offers = events_desk(RAW_ENTRIES, settings, now)
+    coming_up = upcoming_events(config, local)
     page_news, pages_failed = watch_pages(config)
     stats["failed"] += pages_failed
     markets = build_markets(config, now, local, RAW_ENTRIES)
@@ -315,6 +360,7 @@ def main() -> None:
         pricing_reported=reported,
         events=events,
         offers=offers,
+        coming_up=coming_up,
         page_news=page_news,
         markets=markets,
         stats=stats,
@@ -333,6 +379,7 @@ def main() -> None:
         "pricing_confirmed": len(confirmed),
         "pricing_reported": len(reported),
         "events": len(events) + len(page_news),
+        "next_event": f"{coming_up[0]['name']} {coming_up[0]['when']}" if coming_up else "",
         "offers": len(offers),
         "usd_open_market": next((r for r in (markets.get("fx") or {}).get("rows", []) if r["code"] == "USD"), None),
         "kmi30": next((i for i in markets.get("indices", []) if i["name"] == "KMI30"), None),
