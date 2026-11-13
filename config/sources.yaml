@@ -114,6 +114,7 @@ markets:
   top_by_size: 10        # largest KSE-100 companies by market cap
   kse100_movers: 10      # top gainers and top losers in KSE-100
   kmi30_movers: 5        # top gainers and top losers in KMI-30
+  gold_premium_usd: 20   # used only for the estimated per-tola rate when no official rate is found
 
 # Words used to keep only relevant stories from broad Pakistan news feeds
 pakistan_filter: &pakistan_filter
