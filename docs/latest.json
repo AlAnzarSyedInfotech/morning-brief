@@ -24,6 +24,17 @@
   "pricing_reported": 0,
   "events": 0,
   "offers": 0,
+  "usd_open_market": {
+    "code": "USD",
+    "buy": 277.09,
+    "sell": 278.23
+  },
+  "kmi30": {
+    "name": "KMI30",
+    "value": 255928.95,
+    "change": 2055.96,
+    "change_pct": 0.81
+  },
   "stories": 41,
   "sources_ok": 23,
   "sources_failed": []

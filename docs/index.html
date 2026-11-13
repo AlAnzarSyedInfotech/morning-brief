@@ -33,7 +33,19 @@ h1.mast { margin: 0; text-align: center; font-family: var(--serif); font-weight:
 .tag { border: 1px solid #8C887E; padding: 0 6px; border-radius: 4px; font-size: 12px; }
 .columns { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
 main { flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
-aside { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding: 24px; background: var(--tint); border-radius: 8px; }
+.sidecol { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+aside { display: flex; flex-direction: column; gap: 20px; padding: 24px; background: var(--tint); border-radius: 8px; }
+.mk h3 { margin: 0 0 6px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.mk table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+.mk th { text-align: left; font-weight: 600; font-size: 12px; color: var(--muted); padding: 4px 0; border-bottom: 1px solid #CFCBC0; }
+.mk td { padding: 5px 0; border-bottom: 1px solid #E2DED4; }
+.mk th.r, .mk td.r { text-align: right; padding-left: 12px; white-space: nowrap; }
+.mk .src { margin: 6px 0 0; font-size: 12px; color: var(--muted); }
+.mk .src a { color: var(--muted); text-decoration: underline; }
+.mk .big { font-size: 20px; font-weight: 600; font-family: var(--serif); }
+.up { color: #1B6E3A; }
+.down { color: #A1251B; }
+.mk-sub { display: flex; flex-direction: column; gap: 4px; }
 .kicker { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
 .lead { display: flex; flex-direction: column; gap: 12px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); }
 .lead h2 { margin: 0; font-family: var(--serif); font-size: clamp(28px, 4vw, 40px); line-height: 1.15; font-weight: 700; }
@@ -68,7 +80,7 @@ footer p { margin: 0; }
 <header>
   <div class="dateline">
     <span>Friday, 13 November 2026</span>
-    <span>Karachi edition, built 11:34 PKT</span>
+    <span>Karachi edition, built 12:15 PKT</span>
     <span>Covering the last 25 hours</span>
   </div>
   <div class="bar"></div>
@@ -80,6 +92,7 @@ footer p { margin: 0; }
       <a href="#industry">Industry &amp; Clients</a>
       <a href="#global">Global AI Agenda</a>
       <a href="#side">Off the Clock</a>
+      <a href="#markets">Markets</a>
     </nav>
     <div class="legend">
       <span>Source grade:</span>
@@ -99,7 +112,7 @@ footer p { margin: 0; }
     <p>Most business leaders I meet no longer need to be convinced that AI works. They’ve seen the pilots, the demos and the copilots.</p>
     <div class="meta">
   <span class="g gA" title="Official or primary source">A</span>
-  <span>Official Microsoft Blog</span><span>13 h ago</span>
+  <span>Official Microsoft Blog</span><span>14 h ago</span>
   
   
 </div>
@@ -139,7 +152,7 @@ footer p { margin: 0; }
   <p>The public preview of Microsoft-managed performance monitoring for Azure SQL Managed Instance is now available. Customers monitoring business-critical SQL Managed Instance workloads often rely on custom scripts and disconnected monitoring tools.</p>
   <div class="meta">
   <span class="g gA" title="Official or primary source">A</span>
-  <span>Azure Updates</span><span>13 h ago</span>
+  <span>Azure Updates</span><span>14 h ago</span>
   
   
 </div>
@@ -149,7 +162,7 @@ footer p { margin: 0; }
   <p>Results are widespread. Value at scale is not, and that gap is what this year’s research from IDC, commissioned by Microsoft, set out to explain.</p>
   <div class="meta">
   <span class="g gA" title="Official or primary source">A</span>
-  <span>Official Microsoft Blog</span><span>14 h ago</span>
+  <span>Official Microsoft Blog</span><span>15 h ago</span>
   
   
 </div>
@@ -169,7 +182,7 @@ footer p { margin: 0; }
   <p>Colette Kress, named Nvidia&#39;s interim CEO on Thursday after Jensen Huang resigned, spent 13 years at Microsoft, including four as chief financial officer of its Server and Tools business. She faces her first test in the job Tuesday, when Nvidia reports quarterly results.</p>
   <div class="meta">
   <span class="g gB" title="Reputable secondary source">B</span>
-  <span>GeekWire</span><span>11 h ago</span>
+  <span>GeekWire</span><span>12 h ago</span>
   
   
 </div>
@@ -182,7 +195,7 @@ footer p { margin: 0; }
     
     <div class="grid"><article class="story">
   <div class="kicker">Pakistan banking and business</div>
-  <h3><a href="https://www.brecorder.com/news/40448737/sindh-registers-40x-rise-in-third-party-motor-insurance-policies" target="_blank" rel="noopener">Sindh registers 40x rise in third-party motor insurance policies</a></h3>
+  <h3><a href="https://www.brecorder.com/news/40448748/takaichi-to-attend-apec-in-first-china-trip-as-pm" target="_blank" rel="noopener">Takaichi to attend APEC in first China trip as PM</a></h3>
   
   <div class="meta">
   <span class="g gB" title="Reputable secondary source">B</span>
@@ -192,27 +205,7 @@ footer p { margin: 0; }
 </div>
 </article><article class="story">
   <div class="kicker">Pakistan banking and business</div>
-  <h3><a href="https://www.brecorder.com/news/40448735/delhi-overtakes-lahore-as-worlds-most-polluted-city-as-air-quality-drops" target="_blank" rel="noopener">Delhi overtakes Lahore as world&#39;s most polluted city as air quality drops</a></h3>
-  
-  <div class="meta">
-  <span class="g gB" title="Reputable secondary source">B</span>
-  <span>Business Recorder (Latest)</span><span>under 1 h ago</span>
-  
-  
-</div>
-</article><article class="story">
-  <div class="kicker">Pakistan banking and business</div>
-  <h3><a href="https://www.brecorder.com/news/40448733/wheat-rebounds-from-4-12-month-low-on-black-sea-supply-concerns" target="_blank" rel="noopener">Wheat rebounds from 4-1/2-month low on Black Sea supply concerns</a></h3>
-  
-  <div class="meta">
-  <span class="g gB" title="Reputable secondary source">B</span>
-  <span>Business Recorder (Latest)</span><span>under 1 h ago</span>
-  
-  
-</div>
-</article><article class="story">
-  <div class="kicker">Pakistan banking and business</div>
-  <h3><a href="https://www.brecorder.com/news/40448730/chinas-yuan-inches-higher-as-companies-convert-cash-holdings" target="_blank" rel="noopener">China&#39;s yuan inches higher as companies convert cash holdings</a></h3>
+  <h3><a href="https://www.brecorder.com/news/40448745/govt-moves-to-continue-subsidy-for-raast-qr-payments" target="_blank" rel="noopener">Govt moves to continue subsidy for Raast QR payments</a></h3>
   
   <div class="meta">
   <span class="g gB" title="Reputable secondary source">B</span>
@@ -226,7 +219,37 @@ footer p { margin: 0; }
   
   <div class="meta">
   <span class="g gB" title="Reputable secondary source">B</span>
-  <span>Dawn</span><span>1 h ago</span>
+  <span>Dawn</span><span>under 1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan banking and business</div>
+  <h3><a href="https://www.brecorder.com/news/40448744/thai-bahtus-dollar-steady-on-friday" target="_blank" rel="noopener">Thai baht/US dollar steady on Friday</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Business Recorder (Latest)</span><span>under 1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan technology</div>
+  <h3><a href="https://www.brecorder.com/news/40448743/tiktok-owner-bytedance-plans-buyback-at-400-billion-valuation-the-information-reports" target="_blank" rel="noopener">TikTok-owner ByteDance plans buyback at $400 billion valuation, The Information reports</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Business Recorder (Technology)</span><span>under 1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan banking and business</div>
+  <h3><a href="https://www.brecorder.com/news/40448741/australian-dollar-plumbs-10-month-lows-as-us-yields-keep-climbing" target="_blank" rel="noopener">Australian dollar plumbs 10-month lows as US yields keep climbing</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Business Recorder (Latest)</span><span>under 1 h ago</span>
   
   
 </div>
@@ -236,7 +259,7 @@ footer p { margin: 0; }
   
   <div class="meta">
   <span class="g gB" title="Reputable secondary source">B</span>
-  <span>Dawn</span><span>2 h ago</span>
+  <span>Dawn</span><span>3 h ago</span>
   
   
 </div>
@@ -246,17 +269,7 @@ footer p { margin: 0; }
   
   <div class="meta">
   <span class="g gB" title="Reputable secondary source">B</span>
-  <span>Dawn</span><span>3 h ago</span>
-  
-  
-</div>
-</article><article class="story">
-  <div class="kicker">Banking and fintech</div>
-  <h3><a href="https://www.finextra.com/newsarticle/48751/mastercard-opens-singapore-innovation-centre-of-excellence?utm_medium=rssfinextra&amp;utm_source=finextrafeed" target="_blank" rel="noopener">Mastercard opens Singapore innovation centre of excellence</a></h3>
-  
-  <div class="meta">
-  <span class="g gB" title="Reputable secondary source">B</span>
-  <span>Finextra</span><span>6 h ago</span>
+  <span>Dawn</span><span>4 h ago</span>
   
   
 </div>
@@ -273,7 +286,7 @@ footer p { margin: 0; }
   <p>Built primarily on OpenAI models, Amplitude’s proactive product agent, Wave, identifies what to build, helps teams ship changes with coding agents, and measures the impact.</p>
   <div class="meta">
   <span class="g gA" title="Official or primary source">A</span>
-  <span>OpenAI News</span><span>10 h ago</span>
+  <span>OpenAI News</span><span>11 h ago</span>
   <span class="tag">Company announcement</span>
   
 </div>
@@ -283,7 +296,7 @@ footer p { margin: 0; }
   <p>Rotating carousel of cards with text &#34;Gemini 4 Hydrogen&#34; &#34;Now in Google Search&#34; and examples from the Google Search UI</p>
   <div class="meta">
   <span class="g gA" title="Official or primary source">A</span>
-  <span>Google AI Blog</span><span>12 h ago</span>
+  <span>Google AI Blog</span><span>13 h ago</span>
   <span class="tag">Company announcement</span>
   
 </div>
@@ -293,7 +306,7 @@ footer p { margin: 0; }
   <p>Gondola helps creatives get credit and get hired, with Codex raising its lead engineer’s output by 50% and ChatGPT simplifying daily work.</p>
   <div class="meta">
   <span class="g gA" title="Official or primary source">A</span>
-  <span>OpenAI News</span><span>18 h ago</span>
+  <span>OpenAI News</span><span>19 h ago</span>
   <span class="tag">Company announcement</span>
   
 </div>
@@ -303,7 +316,7 @@ footer p { margin: 0; }
   <p>This Congressional investigation into Nvidia&#39;s China sales and its dealings with Trump is the second one, so far, since news of the alleged spy affair broke.</p>
   <div class="meta">
   <span class="g gB" title="Reputable secondary source">B</span>
-  <span>TechCrunch (AI)</span><span>7 h ago</span>
+  <span>TechCrunch (AI)</span><span>8 h ago</span>
   
   
 </div>
@@ -333,7 +346,7 @@ footer p { margin: 0; }
   <p>Google says its new Gemini 4 Hydrogen model can give more helpful answers to complex questions, including &#34;questions with multiple parts, hard-to-understand typos, or highly specific requests.&#34; The new model can break down your questions and address each part in its responses....</p>
   <div class="meta">
   <span class="g gB" title="Reputable secondary source">B</span>
-  <span>The Verge (AI)</span><span>8 h ago</span>
+  <span>The Verge (AI)</span><span>9 h ago</span>
   
   
 </div>
@@ -343,7 +356,7 @@ footer p { margin: 0; }
   <p>Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure.</p>
   <div class="meta">
   <span class="g gB" title="Reputable secondary source">B</span>
-  <span>TechCrunch (AI)</span><span>8 h ago</span>
+  <span>TechCrunch (AI)</span><span>9 h ago</span>
   
   
 </div>
@@ -352,6 +365,7 @@ footer p { margin: 0; }
   </section>
 </main>
 
+<div class="sidecol">
 <aside id="side" aria-label="Off the Clock">
   <div>
     <h2>Off the Clock</h2>
@@ -363,7 +377,7 @@ footer p { margin: 0; }
   
   <div class="meta">
   <span class="g gB" title="Reputable secondary source">B</span>
-  <span>arXiv Quantitative Finance</span><span>11 h ago</span>
+  <span>arXiv Quantitative Finance</span><span>12 h ago</span>
   <span class="tag">Preprint, not peer-reviewed</span>
   
 </div>
@@ -373,7 +387,7 @@ footer p { margin: 0; }
   
   <div class="meta">
   <span class="g gB" title="Reputable secondary source">B</span>
-  <span>arXiv Quantitative Finance</span><span>12 h ago</span>
+  <span>arXiv Quantitative Finance</span><span>13 h ago</span>
   <span class="tag">Preprint, not peer-reviewed</span>
   
 </div>
@@ -400,6 +414,86 @@ footer p { margin: 0; }
 </article>
   
 </aside>
+
+
+
+
+
+<aside id="markets" aria-label="Markets" class="mk">
+  <div>
+    <h2 style="margin:0;font-family:var(--serif);font-size:26px">Markets</h2>
+    <p class="empty">Daily snapshot taken when the paper was built, not live prices. For information only, not investment advice.</p>
+  </div>
+
+  <div class="mk-sub">
+    <h3>Open market rates (PKR)</h3>
+    
+    <table><thead><tr><th>Currency</th><th class="r">Buying</th><th class="r">Selling</th></tr></thead><tbody>
+    <tr><td>USD</td><td class="r">277.09</td><td class="r">278.23</td></tr><tr><td>EUR</td><td class="r">306.65</td><td class="r">309.92</td></tr><tr><td>GBP</td><td class="r">366.91</td><td class="r">370.53</td></tr><tr><td>AED</td><td class="r">75.47</td><td class="r">76.09</td></tr><tr><td>SAR</td><td class="r">73.79</td><td class="r">74.36</td></tr>
+    </tbody></table>
+    <p class="src"><span class="g gA">A</span> <a href="https://www.sbp.org.pk/assets/document/open-market-closing-exchange-rates-12-November-2026.pdf" target="_blank" rel="noopener">ECAP open market closing rates (via State Bank of Pakistan)</a>, closing rates of 12 Nov 2026</p>
+    
+  </div>
+
+  <div class="mk-sub">
+    <h3>Gold</h3>
+    <table><tbody>
+      <tr><td>24K per tola (Pakistan)</td><td class="r">n/a</td></tr>
+      <tr><td>International, per ounce</td><td class="r">US$ 3,902.37</td></tr>
+    </tbody></table>
+    <p class="src">No Pakistan gold rate report found in the last 48 hours.</p>
+    <p class="src"><span class="g gC">C</span> International price from <a href="https://api.gold-api.com/price/XAU" target="_blank" rel="noopener">gold-api.com</a></p>
+  </div>
+
+  <div class="mk-sub">
+    <h3>PSX indices</h3>
+    
+    <table><tbody>
+    <tr><td>KSE-100</td><td class="r big">178,434.59</td><td class="r"><span class="up">+0.60%</span></td></tr><tr><td>KMI-30 (Meezan)</td><td class="r big">255,928.95</td><td class="r"><span class="up">+0.81%</span></td></tr>
+    </tbody></table>
+    
+  </div>
+
+  
+  <div class="mk-sub">
+    <h3>KSE-100: largest 10 companies</h3>
+    <table><thead><tr><th>Symbol</th><th class="r">Price (Rs)</th><th class="r">Change</th></tr></thead><tbody>
+<tr><td title="Fauji Fertilizer Company Limited">FFCXD</td><td class="r">569.79</td><td class="r"><span class="down">-0.07%</span></td></tr><tr><td title="United Bank Limited">UBL</td><td class="r">439.98</td><td class="r"><span class="up">+0.63%</span></td></tr><tr><td title="Engro Holdings Limited">ENGROH</td><td class="r">280.01</td><td class="r"><span class="up">+1.13%</span></td></tr><tr><td title="Meezan Bank Limited">MEBLXD</td><td class="r">558.40</td><td class="r"><span class="up">+0.04%</span></td></tr><tr><td title="Oil &amp; Gas Development Company Limited">OGDCXD</td><td class="r">315.35</td><td class="r"><span class="up">+0.63%</span></td></tr><tr><td title="The Hub Power Company Limited">HUBCXD</td><td class="r">205.30</td><td class="r"><span class="down">-0.01%</span></td></tr><tr><td title="Lucky Cement Limited">LUCK</td><td class="r">442.01</td><td class="r"><span class="up">+1.29%</span></td></tr><tr><td title="Habib Bank Limited">HBL</td><td class="r">311.85</td><td class="r"><span class="up">+0.39%</span></td></tr><tr><td title="Mari Energies Limited">MARI</td><td class="r">728.75</td><td class="r"><span class="up">+7.16%</span></td></tr><tr><td title="MCB Bank Limited">MCBXD</td><td class="r">407.98</td><td class="r"><span class="up">+0.35%</span></td></tr>
+</tbody></table>
+  </div>
+  
+  
+  <div class="mk-sub">
+    <h3>KSE-100: top gainers</h3>
+    <table><thead><tr><th>Symbol</th><th class="r">Price (Rs)</th><th class="r">Change</th></tr></thead><tbody>
+<tr><td title="Yousaf Weaving Mills Limited">YOUW</td><td class="r">6.07</td><td class="r"><span class="up">+19.72%</span></td></tr><tr><td title="Mari Energies Limited">MARI</td><td class="r">728.75</td><td class="r"><span class="up">+7.16%</span></td></tr><tr><td title="Pakistan Services Limited">PSEL</td><td class="r">1,336.45</td><td class="r"><span class="up">+4.21%</span></td></tr><tr><td title="HBL Growth Fund">HGFA</td><td class="r">13.98</td><td class="r"><span class="up">+4.17%</span></td></tr><tr><td title="Kohinoor Textile Mills Limited">KTML</td><td class="r">42.36</td><td class="r"><span class="up">+2.49%</span></td></tr><tr><td title="Fatima Fertilizer Company Limited">FATIMA</td><td class="r">149.90</td><td class="r"><span class="up">+2.44%</span></td></tr><tr><td title="Pakistan International Bulk Terminal">PIBTL</td><td class="r">13.71</td><td class="r"><span class="up">+1.78%</span></td></tr><tr><td title="Cnergyico PK Limited">CNERGY</td><td class="r">11.79</td><td class="r"><span class="up">+1.73%</span></td></tr><tr><td title="Bannu Woollen Mills Limited">BNWM</td><td class="r">62.49</td><td class="r"><span class="up">+1.43%</span></td></tr><tr><td title="JDW Sugar Mills Limited">JDWS</td><td class="r">922.50</td><td class="r"><span class="up">+1.29%</span></td></tr>
+</tbody></table>
+  </div>
+  <div class="mk-sub">
+    <h3>KSE-100: top losers</h3>
+    <table><thead><tr><th>Symbol</th><th class="r">Price (Rs)</th><th class="r">Change</th></tr></thead><tbody>
+<tr><td title="Ibrahim Fibres Limited">IBFL</td><td class="r">245.01</td><td class="r"><span class="down">-3.16%</span></td></tr><tr><td title="Askari Bank Limited">AKBL</td><td class="r">117.12</td><td class="r"><span class="down">-1.51%</span></td></tr><tr><td title="Ghandhara Industries Limited">GHNI</td><td class="r">1,267.99</td><td class="r"><span class="down">-1.49%</span></td></tr><tr><td title="Gadoon Textile Mills Limited">GADT</td><td class="r">305.60</td><td class="r"><span class="down">-1.34%</span></td></tr><tr><td title="Standard Chartered Bank (Pak) Ltd">SCBPL</td><td class="r">60.65</td><td class="r"><span class="down">-1.29%</span></td></tr><tr><td title="Ghandhara Automobiles Limited">GAL</td><td class="r">562.50</td><td class="r"><span class="down">-1.26%</span></td></tr><tr><td title="Thatta Cement Company Limited">THCCL</td><td class="r">74.36</td><td class="r"><span class="down">-1.05%</span></td></tr><tr><td title="D.G. Khan Cement Company Limited">DGKC</td><td class="r">204.29</td><td class="r"><span class="down">-1.01%</span></td></tr><tr><td title="Fauji Foods Limited">FFL</td><td class="r">14.88</td><td class="r"><span class="down">-0.93%</span></td></tr><tr><td title="Adamjee Insurance Company Limited">AICL</td><td class="r">91.00</td><td class="r"><span class="down">-0.74%</span></td></tr>
+</tbody></table>
+  </div>
+  
+  
+  <div class="mk-sub">
+    <h3>KMI-30: top gainers</h3>
+    <table><thead><tr><th>Symbol</th><th class="r">Price (Rs)</th><th class="r">Change</th></tr></thead><tbody>
+<tr><td title="Mari Energies Limited">MARI</td><td class="r">728.75</td><td class="r"><span class="up">+7.16%</span></td></tr><tr><td title="Pakistan Refinery Limited">PRL</td><td class="r">80.79</td><td class="r"><span class="up">+2.16%</span></td></tr><tr><td title="Lucky Cement Limited">LUCK</td><td class="r">442.01</td><td class="r"><span class="up">+1.29%</span></td></tr><tr><td title="National Refinery Limited">NRL</td><td class="r">448.45</td><td class="r"><span class="up">+1.26%</span></td></tr><tr><td title="Sui Southern Gas Company Limited">SSGC</td><td class="r">24.15</td><td class="r"><span class="up">+1.17%</span></td></tr>
+</tbody></table>
+  </div>
+  <div class="mk-sub">
+    <h3>KMI-30: top losers</h3>
+    <table><thead><tr><th>Symbol</th><th class="r">Price (Rs)</th><th class="r">Change</th></tr></thead><tbody>
+<tr><td title="Ghandhara Industries Limited">GHNI</td><td class="r">1,267.99</td><td class="r"><span class="down">-1.49%</span></td></tr><tr><td title="Ghandhara Automobiles Limited">GAL</td><td class="r">562.50</td><td class="r"><span class="down">-1.26%</span></td></tr><tr><td title="D.G. Khan Cement Company Limited">DGKC</td><td class="r">204.29</td><td class="r"><span class="down">-1.01%</span></td></tr><tr><td title="Fauji Foods Limited">FFL</td><td class="r">14.88</td><td class="r"><span class="down">-0.93%</span></td></tr><tr><td title="Sazgar Engineering Works Limited">SAZEWXD</td><td class="r">1,491.10</td><td class="r"><span class="down">-0.73%</span></td></tr>
+</tbody></table>
+  </div>
+  
+  <p class="src"><span class="g gA">A</span> Stock and index data from the <a href="https://dps.psx.com.pk/" target="_blank" rel="noopener">PSX Data Portal</a>, last trading session.</p>
+</aside>
+
+</div>
 </div>
 
 <footer>
