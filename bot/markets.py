@@ -14,6 +14,8 @@ import time
 from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 
+from html import unescape as html_unescape
+
 import requests
 from pypdf import PdfReader
 
@@ -140,6 +142,46 @@ def pakistan_gold(entries: list[dict], now: datetime, max_age_hours: int = 72) -
     return best
 
 
+GOLD_PAGES = [
+    "https://english.aaj.tv/trends/gold-prices-in-pakistan",
+    "https://beta.english.aaj.tv/trends/gold-prices-in-pakistan",
+]
+
+
+def pakistan_gold_page(local_now: datetime, max_age_days: int = 3) -> dict | None:
+    """Fallback: newest per-tola headline on Aaj News' gold prices topic page.
+
+    The page lists headlines followed by "Published 25 Oct, 2025 03:11pm".
+    """
+    for url in GOLD_PAGES:
+        try:
+            raw = _get(url).text
+        except Exception as exc:
+            print(f"[markets] gold page {url}: {exc}", file=sys.stderr)
+            continue
+        text = re.sub(r"\s+", " ", html_unescape(re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", raw))))
+        parts = re.split(r"Published (\d{1,2} \w{3}, \d{4})", text)
+        # parts = [text0, date0, text1, date1, ...]; the headline for date_i ends text_i
+        for i in range(0, len(parts) - 1, 2):
+            headline = parts[i][-300:]
+            if "tola" not in headline.lower():
+                continue
+            amounts = [_num(a) for a in re.findall(r"Rs\.?\s?([\d,]{6,9})", headline)]
+            amounts = [a for a in amounts if 100_000 <= a <= 3_000_000]
+            if not amounts:
+                continue
+            try:
+                published = datetime.strptime(parts[i + 1], "%d %b, %Y")
+            except ValueError:
+                continue
+            if (local_now.replace(tzinfo=None) - published).days > max_age_days:
+                return None  # newest report is too old to show
+            return {"price": max(amounts), "title": headline.strip()[-160:], "link": url,
+                    "source": "Aaj News", "published": published.replace(tzinfo=timezone.utc),
+                    "date": parts[i + 1]}
+    return None
+
+
 # ---------------------------------------------------------------- PSX
 
 class _TableParser(HTMLParser):
@@ -230,7 +272,9 @@ def build_markets(config: dict, now: datetime, local_now: datetime, news_entries
         panel["failed"].append("Open market currency rates")
         print(f"[markets] fx: {exc}", file=sys.stderr)
 
-    panel["gold_pk"] = pakistan_gold(news_entries, now)
+    panel["gold_pk"] = pakistan_gold(news_entries, now) or pakistan_gold_page(local_now)
+    if panel["gold_pk"] is None:
+        panel["failed"].append("Pakistan gold rate")
     panel["gold_intl"] = international_gold()
     if panel["gold_intl"] is None:
         panel["failed"].append("International gold price")
