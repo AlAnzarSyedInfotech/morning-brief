@@ -40,6 +40,25 @@ def main() -> None:
             rows.append(f"| {page['name']} (page watch) | {on} | {result} | {found} lines | - |")
         except Exception as exc:
             rows.append(f"| {page['name']} (page watch) | {on} | FAILED: {str(exc)[:80]} | 0 | - |")
+    # Markets panel sources
+    import markets
+    from datetime import timedelta
+    local = now + timedelta(hours=config["settings"]["utc_offset_hours"])
+    checks = [
+        ("Open market rates (ECAP via SBP)", lambda: markets.open_market_rates(local, ["USD", "EUR", "GBP", "AED", "SAR"]),
+         lambda r: f"{len(r['rows'])} currencies, {r['date']}" if r else "none found in last 7 days"),
+        ("International gold", markets.international_gold, lambda r: f"{r['price']:,.2f} USD from {r['source']}" if r else "no source answered"),
+        ("PSX index levels", lambda: markets.psx_index_levels(["KSE100", "KMI30"]), lambda r: ", ".join(i["name"] for i in r) or "none parsed"),
+        ("PSX KSE-100 stocks", lambda: markets.psx_index_stocks("KSE100"), lambda r: f"{len(r)} stocks"),
+        ("PSX KMI-30 stocks", lambda: markets.psx_index_stocks("KMI30"), lambda r: f"{len(r)} stocks"),
+    ]
+    for name, fn, describe in checks:
+        try:
+            result = fn()
+            ok = "OK" if result else "FAILED"
+            rows.append(f"| {name} (markets) | yes | {ok} | {describe(result)} | - |")
+        except Exception as exc:
+            rows.append(f"| {name} (markets) | yes | FAILED: {str(exc)[:80]} | - | - |")
     table = "\n".join(rows)
     print(table)
     summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
