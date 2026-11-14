@@ -1,44 +1,42 @@
 {
-  "date": "Friday, 13 November 2026",
+  "date": "Saturday, 14 November 2026",
   "top": [
     {
-      "title": "From AI ambition to business impact",
-      "link": "https://blogs.microsoft.com/blog/2026/11/12/from-ai-ambition-to-business-impact/",
-      "grade": "A",
-      "source": "Official Microsoft Blog"
+      "title": "Officials blame aging FAA telecom gear as U.S. airspace reopens, see no link to Microsoft or AI",
+      "link": "https://www.geekwire.com/2026/dhs-chief-sees-no-microsoft-link-to-faa-ground-stop-says-possible-ai-role-being-investigated/",
+      "grade": "B",
+      "source": "GeekWire"
     },
     {
-      "title": "[In preview] Public Preview: SQL performance monitoring for Azure SQL Managed Instance",
-      "link": "https://azure.microsoft.com/updates?id=574158",
+      "title": "Dynamics 365 Business Central: Copilot and agents - Fill forms faster with Autofill - Auto paste",
+      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=579980",
+      "grade": "A",
+      "source": "Microsoft 365 Roadmap"
+    },
+    {
+      "title": "Retirement: Azure Data Share will be retired on November 12, 2029",
+      "link": "https://azure.microsoft.com/updates?id=578818",
       "grade": "A",
       "source": "Azure Updates"
-    },
-    {
-      "title": "Scaling AI value without losing control: Lessons from Frontier Firms",
-      "link": "https://blogs.microsoft.com/blog/2026/11/12/scaling-ai-value-without-losing-control-lessons-from-frontier-firms/",
-      "grade": "A",
-      "source": "Official Microsoft Blog"
     }
   ],
   "pricing_confirmed": 0,
   "pricing_reported": 0,
-  "events": 3,
-  "next_event": "Microsoft Ignite 2026 in 4 days",
-  "offers": 1,
+  "events": 6,
+  "next_event": "Microsoft Ignite 2026 in 3 days",
+  "offers": 0,
   "usd_open_market": {
     "code": "USD",
-    "buy": 277.09,
-    "sell": 278.23
+    "buy": 277.19,
+    "sell": 278.27
   },
   "kmi30": {
     "name": "KMI30",
-    "value": 255928.95,
-    "change": 2055.96,
-    "change_pct": 0.81
+    "value": 255042.46,
+    "change": 1169.47,
+    "change_pct": 0.46
   },
-  "stories": 46,
-  "sources_ok": 24,
-  "sources_failed": [
-    "Microsoft Fabric Blog"
-  ]
+  "stories": 36,
+  "sources_ok": 25,
+  "sources_failed": []
 }
