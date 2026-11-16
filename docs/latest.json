@@ -1,29 +1,29 @@
 {
-  "date": "Sunday, 15 November 2026",
+  "date": "Monday, 16 November 2026",
   "top": [
     {
-      "title": "Who should run Nvidia? Our picks for Jensen Huang\u2019s successor, whether the board likes it or not",
-      "link": "https://www.geekwire.com/2026/who-should-run-nvidia-our-picks-for-jensen-huangs-successor-whether-the-board-likes-it-or-not/",
-      "grade": "B",
-      "source": "GeekWire"
+      "title": "Fabric Influencers Spotlight: October 2026",
+      "link": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Fabric-Influencers-Spotlight-October-2026/ba-p/5420043",
+      "grade": "A",
+      "source": "Microsoft Fabric Blog"
     },
     {
-      "title": "\u2018I hope this email finds you\u2019: Microsoft declares outage over as the world digs out of its inbox",
-      "link": "https://www.geekwire.com/2026/i-hope-this-email-finds-you-microsoft-declares-outage-over-as-the-world-digs-out-of-its-inbox/",
-      "grade": "B",
-      "source": "GeekWire"
+      "title": "LVMH\u2019s Media Division announces strategic partnership with OpenAI",
+      "link": "https://openai.com/index/lvmh-media-division-partnership",
+      "grade": "A",
+      "source": "OpenAI News"
     },
     {
-      "title": "Nvidia\u2019s CEO meltdown, who could replace Jensen Huang, and our latest AI tips and tricks",
-      "link": "https://www.geekwire.com/2026/nvidias-ceo-meltdown-who-could-replace-jensen-huang-and-our-latest-ai-tips-and-tricks/",
-      "grade": "B",
-      "source": "GeekWire"
+      "title": "The King\u2019s Trust and OpenAI launch \u00a31m partnership",
+      "link": "https://openai.com/index/the-kings-trust-and-openai",
+      "grade": "A",
+      "source": "OpenAI News"
     }
   ],
   "pricing_confirmed": 0,
   "pricing_reported": 0,
   "events": 6,
-  "next_event": "Microsoft Ignite 2026 in 2 days",
+  "next_event": "Microsoft Ignite 2026 tomorrow",
   "offers": 0,
   "usd_open_market": {
     "code": "USD",
@@ -32,11 +32,11 @@
   },
   "kmi30": {
     "name": "KMI30",
-    "value": 255042.46,
-    "change": 1169.47,
-    "change_pct": 0.46
+    "value": 255677.34,
+    "change": 634.88,
+    "change_pct": 0.25
   },
-  "stories": 24,
+  "stories": 31,
   "sources_ok": 24,
   "sources_failed": [
     "Finextra"
