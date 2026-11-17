@@ -1,42 +1,42 @@
 {
-  "date": "Monday, 16 November 2026",
+  "date": "Tuesday, 17 November 2026",
   "top": [
     {
-      "title": "Fabric Influencers Spotlight: October 2026",
-      "link": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Fabric-Influencers-Spotlight-October-2026/ba-p/5420043",
+      "title": "AI Skills Navigator at Microsoft Ignite 2026: Learn, practice, apply",
+      "link": "https://techcommunity.microsoft.com/t5/the-skills-hub-blog/ai-skills-navigator-at-microsoft-ignite-2026-learn-practice/ba-p/4502647",
       "grade": "A",
-      "source": "Microsoft Fabric Blog"
+      "source": "Microsoft Skills Hub Blog"
     },
     {
-      "title": "LVMH\u2019s Media Division announces strategic partnership with OpenAI",
-      "link": "https://openai.com/index/lvmh-media-division-partnership",
-      "grade": "A",
-      "source": "OpenAI News"
+      "title": "What went wrong with Outlook: Microsoft blames \u2018thundering herds\u2019 and a bug unnoticed for months",
+      "link": "https://www.geekwire.com/2026/what-went-wrong-with-outlook-microsoft-blames-thundering-herds-and-a-bug-unnoticed-for-months/",
+      "grade": "B",
+      "source": "GeekWire"
     },
     {
-      "title": "The King\u2019s Trust and OpenAI launch \u00a31m partnership",
-      "link": "https://openai.com/index/the-kings-trust-and-openai",
-      "grade": "A",
-      "source": "OpenAI News"
+      "title": "Why Microsoft is aiming to make Copilot the \u2018OS for work\u2019",
+      "link": "https://www.geekwire.com/2026/why-microsoft-is-aiming-to-make-copilot-the-os-for-work/",
+      "grade": "B",
+      "source": "GeekWire"
     }
   ],
   "pricing_confirmed": 0,
   "pricing_reported": 0,
   "events": 6,
-  "next_event": "Microsoft Ignite 2026 tomorrow",
+  "next_event": "Microsoft Ignite 2026 happening now",
   "offers": 0,
   "usd_open_market": {
     "code": "USD",
-    "buy": 277.19,
-    "sell": 278.27
+    "buy": 277.23,
+    "sell": 278.45
   },
   "kmi30": {
     "name": "KMI30",
-    "value": 255677.34,
-    "change": 634.88,
-    "change_pct": 0.25
+    "value": 254385.85,
+    "change": -1291.49,
+    "change_pct": -0.51
   },
-  "stories": 31,
+  "stories": 33,
   "sources_ok": 24,
   "sources_failed": [
     "Finextra"
