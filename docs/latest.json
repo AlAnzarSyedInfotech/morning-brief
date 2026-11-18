@@ -1,30 +1,30 @@
 {
-  "date": "Tuesday, 17 November 2026",
+  "date": "Wednesday, 18 November 2026",
   "top": [
     {
-      "title": "AI Skills Navigator at Microsoft Ignite 2026: Learn, practice, apply",
-      "link": "https://techcommunity.microsoft.com/t5/the-skills-hub-blog/ai-skills-navigator-at-microsoft-ignite-2026-learn-practice/ba-p/4502647",
+      "title": "Run proactive operations with Real-Time Intelligence in Microsoft Fabric",
+      "link": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Run-proactive-operations-with-Real-Time-Intelligence-in/ba-p/5414256",
       "grade": "A",
-      "source": "Microsoft Skills Hub Blog"
+      "source": "Microsoft Fabric Blog"
     },
     {
-      "title": "What went wrong with Outlook: Microsoft blames \u2018thundering herds\u2019 and a bug unnoticed for months",
-      "link": "https://www.geekwire.com/2026/what-went-wrong-with-outlook-microsoft-blames-thundering-herds-and-a-bug-unnoticed-for-months/",
-      "grade": "B",
-      "source": "GeekWire"
+      "title": "[Launched] Generally Available: Intel and AMD v6 with temp disk for Azure Database for PostgreSQL",
+      "link": "https://azure.microsoft.com/updates?id=579590",
+      "grade": "A",
+      "source": "Azure Updates"
     },
     {
-      "title": "Why Microsoft is aiming to make Copilot the \u2018OS for work\u2019",
-      "link": "https://www.geekwire.com/2026/why-microsoft-is-aiming-to-make-copilot-the-os-for-work/",
-      "grade": "B",
-      "source": "GeekWire"
+      "title": "[Launched] Generally Available: Cobalt 200 compute for Azure Database for PostgreSQL",
+      "link": "https://azure.microsoft.com/updates?id=579585",
+      "grade": "A",
+      "source": "Azure Updates"
     }
   ],
   "pricing_confirmed": 0,
   "pricing_reported": 0,
   "events": 6,
   "next_event": "Microsoft Ignite 2026 happening now",
-  "offers": 0,
+  "offers": 1,
   "usd_open_market": {
     "code": "USD",
     "buy": 277.23,
@@ -32,13 +32,11 @@
   },
   "kmi30": {
     "name": "KMI30",
-    "value": 254385.85,
-    "change": -1291.49,
-    "change_pct": -0.51
+    "value": 252609.58,
+    "change": -1776.27,
+    "change_pct": -0.7
   },
-  "stories": 33,
-  "sources_ok": 24,
-  "sources_failed": [
-    "Finextra"
-  ]
+  "stories": 62,
+  "sources_ok": 25,
+  "sources_failed": []
 }
