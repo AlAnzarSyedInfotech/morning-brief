@@ -1,23 +1,23 @@
 {
-  "date": "Wednesday, 18 November 2026",
+  "date": "Thursday, 19 November 2026",
   "top": [
     {
-      "title": "Run proactive operations with Real-Time Intelligence in Microsoft Fabric",
-      "link": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Run-proactive-operations-with-Real-Time-Intelligence-in/ba-p/5414256",
+      "title": "Fabric November 2026 Feature Summary",
+      "link": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Fabric-November-2026-Feature-Summary/ba-p/5414311",
       "grade": "A",
       "source": "Microsoft Fabric Blog"
     },
     {
-      "title": "[Launched] Generally Available: Intel and AMD v6 with temp disk for Azure Database for PostgreSQL",
-      "link": "https://azure.microsoft.com/updates?id=579590",
+      "title": "Microsoft Purview: Information Protection-Sensitivity label inheritance for Teams meeting artifacts",
+      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=581739",
       "grade": "A",
-      "source": "Azure Updates"
+      "source": "Microsoft 365 Roadmap"
     },
     {
-      "title": "[Launched] Generally Available: Cobalt 200 compute for Azure Database for PostgreSQL",
-      "link": "https://azure.microsoft.com/updates?id=579585",
+      "title": "Microsoft Contact Center Intelligence: D365 Contact Center Admin Center users can create CCI agents",
+      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=575277",
       "grade": "A",
-      "source": "Azure Updates"
+      "source": "Microsoft 365 Roadmap"
     }
   ],
   "pricing_confirmed": 0,
@@ -27,16 +27,16 @@
   "offers": 1,
   "usd_open_market": {
     "code": "USD",
-    "buy": 277.23,
-    "sell": 278.45
+    "buy": 277.27,
+    "sell": 278.34
   },
   "kmi30": {
     "name": "KMI30",
-    "value": 252609.58,
-    "change": -1776.27,
-    "change_pct": -0.7
+    "value": 254174.09,
+    "change": 1564.51,
+    "change_pct": 0.62
   },
-  "stories": 62,
+  "stories": 48,
   "sources_ok": 25,
   "sources_failed": []
 }
