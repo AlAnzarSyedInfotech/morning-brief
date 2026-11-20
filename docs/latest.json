@@ -1,23 +1,23 @@
 {
-  "date": "Thursday, 19 November 2026",
+  "date": "Friday, 20 November 2026",
   "top": [
     {
-      "title": "Fabric November 2026 Feature Summary",
-      "link": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Fabric-November-2026-Feature-Summary/ba-p/5414311",
+      "title": "On-premises data gateway November 2026 release",
+      "link": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/On-premises-data-gateway-November-2026-release/ba-p/5430005",
       "grade": "A",
       "source": "Microsoft Fabric Blog"
     },
     {
-      "title": "Microsoft Purview: Information Protection-Sensitivity label inheritance for Teams meeting artifacts",
-      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=581739",
+      "title": "Fabric Data Warehouse at Ignite: Built for AI-era analytics",
+      "link": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Fabric-Data-Warehouse-at-Ignite-Built-for-AI-era-analytics/ba-p/5414274",
       "grade": "A",
-      "source": "Microsoft 365 Roadmap"
+      "source": "Microsoft Fabric Blog"
     },
     {
-      "title": "Microsoft Contact Center Intelligence: D365 Contact Center Admin Center users can create CCI agents",
-      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=575277",
+      "title": "Discover and review Power Pages sites with Power Platform inventory (public preview)",
+      "link": "https://www.microsoft.com/en-us/power-platform/blog/power-pages/discover-and-review-power-pages-sites-with-power-platform-inventory-public-preview/",
       "grade": "A",
-      "source": "Microsoft 365 Roadmap"
+      "source": "Microsoft Power Platform Blog"
     }
   ],
   "pricing_confirmed": 0,
@@ -27,16 +27,19 @@
   "offers": 1,
   "usd_open_market": {
     "code": "USD",
-    "buy": 277.27,
-    "sell": 278.34
+    "buy": 277.24,
+    "sell": 278.35
   },
   "kmi30": {
     "name": "KMI30",
-    "value": 254174.09,
-    "change": 1564.51,
-    "change_pct": 0.62
+    "value": 255823.27,
+    "change": 1649.18,
+    "change_pct": 0.65
   },
-  "stories": 48,
-  "sources_ok": 25,
-  "sources_failed": []
+  "stories": 38,
+  "sources_ok": 23,
+  "sources_failed": [
+    "Finextra",
+    "Dawn"
+  ]
 }
