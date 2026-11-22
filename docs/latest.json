@@ -1,27 +1,27 @@
 {
-  "date": "Saturday, 21 November 2026",
+  "date": "Sunday, 22 November 2026",
   "top": [
     {
-      "title": "On-premises data gateway November 2026 release",
-      "link": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/On-premises-data-gateway-November-2026-release/ba-p/5430005",
-      "grade": "A",
-      "source": "Microsoft Fabric Blog"
+      "title": "After the Outlook outage: Mary Jo Foley on Ignite, Microsoft\u2019s AI pitch, and a new approach to the press",
+      "link": "https://www.geekwire.com/2026/after-the-outlook-outage-mary-jo-foley-on-ignite-microsofts-ai-pitch-and-a-new-approach-to-the-press/",
+      "grade": "B",
+      "source": "GeekWire"
     },
     {
-      "title": "Manage workforce requests in Microsoft 365 Copilot",
-      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=581992",
-      "grade": "A",
-      "source": "Microsoft 365 Roadmap"
+      "title": "Microsoft\u2019s final Outlook outage report details testing gaps and safeguards that backfired",
+      "link": "https://www.geekwire.com/2026/microsofts-final-outlook-outage-report-details-testing-gaps-and-safeguards-that-backfired/",
+      "grade": "B",
+      "source": "GeekWire"
     },
     {
-      "title": "[Launched] Generally Available: Governance policy guidance in Foundry Canvas and VS Code",
-      "link": "https://azure.microsoft.com/updates?id=581463",
-      "grade": "A",
-      "source": "Azure Updates"
+      "title": "Signal restricts mobile screenshots as it confronts \u2018existential threat\u2019 of AI surveillance",
+      "link": "https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/",
+      "grade": "B",
+      "source": "TechCrunch (AI)"
     }
   ],
   "pricing_confirmed": 0,
-  "pricing_reported": 0,
+  "pricing_reported": 1,
   "events": 6,
   "next_event": "",
   "offers": 1,
@@ -36,7 +36,7 @@
     "change": 1649.18,
     "change_pct": 0.65
   },
-  "stories": 45,
+  "stories": 25,
   "sources_ok": 25,
   "sources_failed": []
 }
