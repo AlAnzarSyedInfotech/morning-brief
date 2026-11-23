@@ -1,42 +1,42 @@
 {
-  "date": "Sunday, 22 November 2026",
+  "date": "Monday, 23 November 2026",
   "top": [
     {
-      "title": "After the Outlook outage: Mary Jo Foley on Ignite, Microsoft\u2019s AI pitch, and a new approach to the press",
-      "link": "https://www.geekwire.com/2026/after-the-outlook-outage-mary-jo-foley-on-ignite-microsofts-ai-pitch-and-a-new-approach-to-the-press/",
+      "title": "Scalar User-defined functions (UDFs) in Microsoft Fabric Data Warehouse (Generally Available)",
+      "link": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Scalar-User-defined-functions-UDFs-in-Microsoft-Fabric-Data/ba-p/5399753",
+      "grade": "A",
+      "source": "Microsoft Fabric Blog"
+    },
+    {
+      "title": "Microsoft\u2019s Brad Smith on Trump\u2019s data center tax threat: \u2018You can\u2019t support Helsinki from New Jersey\u2019",
+      "link": "https://www.geekwire.com/2026/microsofts-brad-smith-on-trumps-data-center-tax-threat-you-cant-support-helsinki-from-new-jersey/",
       "grade": "B",
       "source": "GeekWire"
     },
     {
-      "title": "Microsoft\u2019s final Outlook outage report details testing gaps and safeguards that backfired",
-      "link": "https://www.geekwire.com/2026/microsofts-final-outlook-outage-report-details-testing-gaps-and-safeguards-that-backfired/",
+      "title": "Beyond Nvidia: Convoy co-founder and former Microsoft leader raise $277M to rethink AI infrastructure",
+      "link": "https://www.geekwire.com/2026/beyond-nvidia-convoy-co-founder-and-former-microsoft-leader-raise-277m-to-rethink-ai-infrastructure/",
       "grade": "B",
       "source": "GeekWire"
-    },
-    {
-      "title": "Signal restricts mobile screenshots as it confronts \u2018existential threat\u2019 of AI surveillance",
-      "link": "https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/",
-      "grade": "B",
-      "source": "TechCrunch (AI)"
     }
   ],
   "pricing_confirmed": 0,
-  "pricing_reported": 1,
+  "pricing_reported": 0,
   "events": 6,
   "next_event": "",
   "offers": 1,
   "usd_open_market": {
     "code": "USD",
-    "buy": 277.24,
-    "sell": 278.35
+    "buy": 277.27,
+    "sell": 278.47
   },
   "kmi30": {
     "name": "KMI30",
-    "value": 255823.27,
-    "change": 1649.18,
-    "change_pct": 0.65
+    "value": 256289.45,
+    "change": 466.18,
+    "change_pct": 0.18
   },
-  "stories": 25,
+  "stories": 32,
   "sources_ok": 25,
   "sources_failed": []
 }
