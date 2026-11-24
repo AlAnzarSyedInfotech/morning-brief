@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Morning Brief: Tuesday, 24 November 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root {
+  --paper: #FBFAF7; --ink: #16181D; --muted: #4A4F58; --body: #3B3F47;
+  --rule: #D9D6CE; --tint: #EFEDE6; --accent: #1F4E8C; --amber: #7A4F00;
+  --serif: "Source Serif 4", Georgia, serif;
+  --sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+a { color: var(--ink); text-decoration: none; }
+a:hover { color: var(--accent); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 32px 24px 56px; display: flex; flex-direction: column; gap: 32px; }
+.dateline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--muted); }
+.bar { height: 3px; background: var(--accent); margin: 16px 0; }
+h1.mast { margin: 0; text-align: center; font-family: var(--serif); font-weight: 700; font-size: clamp(40px, 7vw, 64px); line-height: 1.05; }
+.tagline { margin: 12px 0 16px; text-align: center; font-size: 15px; color: var(--muted); }
+.navrow { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 12px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.navrow nav { display: flex; flex-wrap: wrap; gap: 20px; font-size: 14px; font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 12px; color: var(--muted); }
+.g { display: inline-block; padding: 1px 7px; border-radius: 4px; font-weight: 600; font-size: 12px; line-height: 18px; }
+.gA { background: var(--ink); color: #fff; border: 1px solid var(--ink); }
+.gB { border: 1px solid var(--ink); color: var(--ink); }
+.gC { border: 1px dashed var(--amber); color: var(--amber); }
+.tag { border: 1px solid #8C887E; padding: 0 6px; border-radius: 4px; font-size: 12px; }
+.columns { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
+main { flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+.sidecol { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+aside { display: flex; flex-direction: column; gap: 20px; padding: 24px; background: var(--tint); border-radius: 8px; }
+.mk h3 { margin: 0 0 6px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.mk table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+.mk th { text-align: left; font-weight: 600; font-size: 12px; color: var(--muted); padding: 4px 0; border-bottom: 1px solid #CFCBC0; }
+.mk td { padding: 5px 0; border-bottom: 1px solid #E2DED4; }
+.mk th.r, .mk td.r { text-align: right; padding-left: 12px; white-space: nowrap; }
+.mk .src { margin: 6px 0 0; font-size: 12px; color: var(--muted); }
+.mk .src a { color: var(--muted); text-decoration: underline; }
+.mk .big { font-size: 17px; font-weight: 600; font-family: var(--serif); }
+.up { color: #1B6E3A; }
+.down { color: #A1251B; }
+.mk-sub { display: flex; flex-direction: column; gap: 4px; }
+.kicker { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+.lead { display: flex; flex-direction: column; gap: 12px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); }
+.lead h2 { margin: 0; font-family: var(--serif); font-size: clamp(28px, 4vw, 40px); line-height: 1.15; font-weight: 700; }
+.lead p { margin: 0; font-size: 17px; line-height: 1.55; color: var(--body); max-width: 72ch; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+section > h2 { margin: 0; font-family: var(--serif); font-size: 28px; padding-bottom: 8px; border-bottom: 2px solid var(--ink); }
+section { display: flex; flex-direction: column; gap: 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px 32px; }
+.story { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.story h3 { margin: 0; font-family: var(--serif); font-size: 21px; line-height: 1.25; font-weight: 600; }
+.story p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--body); }
+aside .story { border-top-color: #CFCBC0; }
+aside .story h3 { font-size: 18px; }
+aside > h2 { margin: 0; font-family: var(--serif); font-size: 26px; }
+.desk { display: flex; flex-direction: column; gap: 14px; padding: 20px; border: 2px solid var(--ink); border-radius: 8px; background: #fff; }
+.desk h3 { margin: 0; font-size: 18px; }
+.desk-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; }
+.desk-row a { font-family: var(--serif); font-size: 19px; font-weight: 600; flex: 1 1 320px; }
+.empty { margin: 0; font-size: 14px; color: var(--muted); }
+footer { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 2px solid var(--ink); font-size: 13px; color: var(--muted); }
+footer .stats { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+footer p { margin: 0; }
+</style>
+</head>
+<body>
+
+
+
+
+
+<div class="wrap">
+<header>
+  <div class="dateline">
+    <span>Tuesday, 24 November 2026</span>
+    <span>Karachi edition, built 20:01 PKT</span>
+    <span>Covering the last 25 hours</span>
+  </div>
+  <div class="bar"></div>
+  <h1 class="mast">The Morning Brief</h1>
+  <p class="tagline">Microsoft Data &amp; AI, industry and clients, and the global AI agenda</p>
+  <div class="navrow">
+    <nav aria-label="Sections">
+      <a href="#microsoft">Microsoft Watch</a>
+      <a href="#industry">Industry &amp; Clients</a>
+      <a href="#global">Global AI Agenda</a>
+      <a href="#side">Off the Clock</a>
+      <a href="#markets">Markets</a>
+    </nav>
+    <div class="legend">
+      <span>Source grade:</span>
+      <span class="g gA">A Official</span>
+      <span class="g gB">B Reputable</span>
+      <span class="g gC">C Unconfirmed</span>
+    </div>
+  </div>
+</header>
+
+<div class="columns">
+<main>
+  
+  <article class="lead">
+    <div class="kicker">Lead story: Data platform</div>
+    <h2><a href="https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Enable-Azure-Blob-Storage-Events-Without-Compromising-Your/ba-p/5408564" target="_blank" rel="noopener">Enable Azure Blob Storage Events Without Compromising Your Tenant Private Links Policy</a></h2>
+    <p>Learn how to keep Microsoft Fabric tenant private links enabled while allowing approved Azure Blob Storage events through workspace Resource Instance Rules.</p>
+    <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Microsoft Fabric Blog</span><span>19 h ago</span>
+  
+  
+</div>
+  </article>
+  
+
+  <section id="microsoft">
+    <h2>Microsoft Watch</h2>
+    <div class="desk">
+      <div class="desk-row" style="justify-content: space-between">
+        <h3>Pricing &amp; Licensing Desk</h3>
+        <span class="meta">Shown as fact only when Microsoft confirms it</span>
+      </div>
+      
+      <div class="desk-row"><span class="g gA">Confirmed by Microsoft</span><a href="https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/On-demand-billing-for-Fabric-Data-Warehouse-Preview/ba-p/5376329" target="_blank" rel="noopener">On-demand billing for Fabric Data Warehouse (Preview)</a></div>
+      
+      <div class="desk-row"><span class="g gA">Confirmed by Microsoft</span><a href="https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Fabric-on-demand-billing-and-Zero-provisioned-F0-Capacity/ba-p/5377585" target="_blank" rel="noopener">Fabric on-demand billing and Zero-provisioned (F0) Capacity (Preview)</a></div>
+      
+      
+      
+    </div>
+    <div class="desk">
+      <div class="desk-row" style="justify-content: space-between">
+        <h3>Events &amp; Certification Desk</h3>
+        <span class="meta">Microsoft, fintech and AI events, and exam voucher offers (last 7 days)</span>
+      </div>
+      
+      
+      <div class="desk-row"><span class="g gA">Voucher offer</span><a href="https://www.microsoft.com/microsoft-365/roadmap?id=580478" target="_blank" rel="noopener">Dynamics 365 Project Operations: Optimize Project Operations - TZ Independent Accounting date</a></div>
+      
+      
+      <div class="desk-row"><span class="g gB">Microsoft event</span><a href="https://www.geekwire.com/2026/copilot-without-m365-and-more-news-you-didnt-hear-but-maybe-should-have-at-microsoft-ignite/" target="_blank" rel="noopener">Copilot without M365, and more news you didn’t hear (but maybe should have) at Microsoft Ignite</a><span class="meta">GeekWire, under 1 h ago</span></div>
+      
+      <div class="desk-row"><span class="g gB">Fintech and AI event</span><a href="https://www.brecorder.com/news/40450520/ai-boom-looms-over-warshs-fed-as-inflation-worries-grow" target="_blank" rel="noopener">AI boom looms over Warsh&#39;s Fed as inflation worries grow</a><span class="meta">Business Recorder (Latest), 3 h ago</span></div>
+      
+      <div class="desk-row"><span class="g gB">Microsoft event</span><a href="https://www.brecorder.com/news/40450500/australian-dollar-steadies-on-stock-rally-kiwi-hits-17-year-lows" target="_blank" rel="noopener">Australian dollar steadies on stock rally, kiwi hits 17-year lows</a><span class="meta">Business Recorder (Latest), 8 h ago</span></div>
+      
+      <div class="desk-row"><span class="g gB">Fintech and AI event</span><a href="https://www.theverge.com/science/1040497/ai-data-centers-electricity-un-climate-summit" target="_blank" rel="noopener">AI data centers throw another wrench into chaotic UN climate talks</a><span class="meta">The Verge (AI), 17 h ago</span></div>
+      
+      <div class="desk-row"><span class="g gB">Fintech and AI event</span><a href="https://fintechnews.sg/142141/payments/payermax-shopeepay-partnership/" target="_blank" rel="noopener">PayerMax and ShopeePay Expand Partnership Beyond Payments</a><span class="meta">Fintech News Singapore, 32 h ago</span></div>
+      
+      <div class="desk-row"><span class="g gB">Microsoft event</span><a href="https://www.geekwire.com/2026/after-the-outlook-outage-mary-jo-foley-on-ignite-microsofts-ai-pitch-and-a-new-approach-to-the-press/" target="_blank" rel="noopener">After the Outlook outage: Mary Jo Foley on Ignite, Microsoft’s AI pitch, and a new approach to the press</a><span class="meta">GeekWire, 68 h ago</span></div>
+      
+      
+      
+      <p class="empty">Voucher terms vary by offer and region; check eligibility on the offer page before registering.</p>
+    </div>
+    
+    <div class="grid"><article class="story">
+  <div class="kicker">Copilot and Microsoft 365</div>
+  <h3><a href="https://www.microsoft.com/microsoft-365/roadmap?id=581790" target="_blank" rel="noopener">Dynamics 365 Sales: Customize how Recommended Actions are prioritized with custom instructions</a></h3>
+  <p>Administrators can customize how the Recommended Actions agent prioritizes actions by configuring natural-language instructions for individual source agents. This gives organizations greater flexibility to align AI-generated recommendations with their sales strategies while...</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Microsoft 365 Roadmap</span><span>14 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Copilot and Microsoft 365</div>
+  <h3><a href="https://www.microsoft.com/microsoft-365/roadmap?id=580889" target="_blank" rel="noopener">Microsoft Copilot (Microsoft 365): The more you use Copilot in Office the better it gets</a></h3>
+  <p>Copilot in Word, Excel, PowerPoint, and Workspaces across Copilot App and OneNote will use memory to learn your work patterns and personalize responses. With memory, Copilot can offer more relevant suggestions, hold the pen in a way that represents you, and adapt to your...</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Microsoft 365 Roadmap</span><span>14 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Azure updates</div>
+  <h3><a href="https://azure.microsoft.com/updates?id=581333" target="_blank" rel="noopener">[In preview] Public Preview: Enterprise Knowledge Graph in Foundry IQ</a></h3>
+  <p>Foundry IQ adds Enterprise Knowledge Graph as a knowledge source for questions that depend on relationships across your content.During indexing, it extracts entities and relationships from unstructured content, guided by an ontology you provide. Agents ca</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Azure Updates</span><span>17 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Azure updates</div>
+  <h3><a href="https://azure.microsoft.com/updates?id=581338" target="_blank" rel="noopener">[In preview] Public Preview: Updated Guardrails experience in Microsoft Foundry</a></h3>
+  <p>In Microsoft Foundry, Guardrails helps developers configure runtime safety controls for agents, including classifiers, deterministic rules, and LLM-based judges.When an administrator policy requires controls for a project, Guardrails surfaces those requir</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Azure Updates</span><span>17 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Azure updates</div>
+  <h3><a href="https://azure.microsoft.com/updates?id=581343" target="_blank" rel="noopener">[In preview] Public Preview: IQ Retriever Zero in Foundry IQ</a></h3>
+  <p>Foundry IQ can use an iterative retrieval model to break complex questions into focused searches. The model reviews search results and searches again when needed, within a configured budget, then passes the retrieved evidence to the model that answers the</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Azure Updates</span><span>17 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Azure updates</div>
+  <h3><a href="https://azure.microsoft.com/updates?id=581353" target="_blank" rel="noopener">[Launched] Public Preview: Style and instruction control for HD V3 voices in Azure Speech in Foundry Tools</a></h3>
+  <p>Azure Speech in Foundry Tools provides HD V3 voices with style and instruction control in public preview.Use supported controls to shape voice delivery for voice agents, narration, and other speech experiences.Learn more.</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Azure Updates</span><span>17 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Data platform</div>
+  <h3><a href="https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/On-demand-billing-for-Fabric-Data-Warehouse-Preview/ba-p/5376329" target="_blank" rel="noopener">On-demand billing for Fabric Data Warehouse (Preview)</a></h3>
+  <p>Only pay for what you consume Many warehouse workloads are highly variable. In some cases, a few peak periods demand significant compute, while the rest of the month usage is much lower.</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Microsoft Fabric Blog</span><span>19 h ago</span>
+  
+  
+</div>
+</article></div>
+    
+  </section>
+
+  <section id="industry">
+    <h2>Industry &amp; Clients</h2>
+    
+    <div class="grid"><article class="story">
+  <div class="kicker">Pakistan banking and business</div>
+  <h3><a href="https://www.brecorder.com/news/40450531/china-india-set-for-record-russian-oil-imports-in-2026-but-demand-seen-peaking" target="_blank" rel="noopener">China, India set for record Russian oil imports in 2026, but demand seen peaking</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Business Recorder (Latest)</span><span>under 1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Banking and fintech</div>
+  <h3><a href="https://www.finextra.com/newsarticle/48802/trustly-raises-60m-from-shareholders-for-ai-powered-growth-plan?utm_medium=rssfinextra&amp;utm_source=finextrafeed" target="_blank" rel="noopener">Trustly raises $60m from shareholders for AI-powered growth plan</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Finextra</span><span>under 1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Fintech</div>
+  <h3><a href="https://thefintechtimes.com/cbi-bancomat-and-nexi-partner-on-italian-digital-euro-infrastructure/" target="_blank" rel="noopener">CBI, BANCOMAT, and Nexi Partner on Italian Digital Euro Infrastructure</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>The Fintech Times</span><span>1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan banking and business</div>
+  <h3><a href="https://www.brecorder.com/news/40450525/numbeo-index-puts-lahores-safety-score-at-638-behind-islamabad" target="_blank" rel="noopener">Numbeo index puts Lahore&#39;s safety score at 63.8, behind Islamabad</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Business Recorder (Latest)</span><span>1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan banking and business</div>
+  <h3><a href="https://www.brecorder.com/news/40450528/anthropic-breaks-below-83-ipo-price-as-debut-rally-unravels" target="_blank" rel="noopener">Anthropic breaks below $83 IPO price as debut rally unravels</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Business Recorder (Latest)</span><span>1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan</div>
+  <h3><a href="https://www.dawn.com/news/2046777/sales-tax-zones-being-established-in-karachi-lahore-islamabad-and-multan-pm-told" target="_blank" rel="noopener">Sales tax zones being established in Karachi, Lahore, Islamabad and Multan, PM told</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Dawn</span><span>2 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan banking and business</div>
+  <h3><a href="https://www.brecorder.com/news/40450526/jensen-huang-returns-to-nvidia-vows-to-be-a-better-ceo" target="_blank" rel="noopener">Jensen Huang returns to Nvidia, vows to be &#39;a better CEO&#39;</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Business Recorder (Latest)</span><span>2 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan</div>
+  <h3><a href="https://www.dawn.com/news/2046778/israeli-strikes-in-gaza-kill-7-including-senior-security-official" target="_blank" rel="noopener">Israeli strikes in Gaza kill 7, including senior security official</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Dawn</span><span>2 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Pakistan</div>
+  <h3><a href="https://www.dawn.com/news/2046770/freedom-of-speech-should-not-become-a-shield-for-those-crossing-red-lines-says-naqvi" target="_blank" rel="noopener">Freedom of speech should not become a shield for those crossing &#39;red lines&#39;, says Naqvi</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Dawn</span><span>2 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Fintech</div>
+  <h3><a href="https://thefintechtimes.com/in-profile-mira-boora-coo-and-co-founder-at-yeeld/" target="_blank" rel="noopener">In Profile: Mira Boora, COO and Co-Founder at Yeeld</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>The Fintech Times</span><span>4 h ago</span>
+  
+  
+</div>
+</article></div>
+    
+  </section>
+
+  <section id="global">
+    <h2>Global AI Agenda</h2>
+    
+    <div class="grid"><article class="story">
+  <div class="kicker">AI breakthrough</div>
+  <h3><a href="https://openai.com/index/introducing-shirudo" target="_blank" rel="noopener">OpenAI and Cisco introduce Shirudo</a></h3>
+  <p>OpenAI and Cisco introduce Shirudo, an open-source runtime for Linux. It helps teams protect running systems while they roll out patches.</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>OpenAI News</span><span>17 h ago</span>
+  <span class="tag">Company announcement</span>
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI breakthrough</div>
+  <h3><a href="https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/" target="_blank" rel="noopener">A more tailored Google Search that’s uniquely yours</a></h3>
+  <p>Google Search bar with the text &#34;Personal Intelligence&#34; surrounded by the Google Wallet, Google Drive, GMail, Google Photos, Google Calendar, and Google G logo icons</p>
+  <div class="meta">
+  <span class="g gA" title="Official or primary source">A</span>
+  <span>Google AI Blog</span><span>22 h ago</span>
+  <span class="tag">Company announcement</span>
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI news</div>
+  <h3><a href="https://arstechnica.com/tech-policy/2026/11/how-trump-and-silicon-valley-forced-nvidia-to-take-jensen-huang-back/" target="_blank" rel="noopener">How Trump and Silicon Valley forced Nvidia to take Jensen Huang back</a></h3>
+  <p>Huang’s allies enlisted Trump and Vance to pressure Nvidia’s board into taking him back.</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Ars Technica (AI)</span><span>under 1 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI news</div>
+  <h3><a href="https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/" target="_blank" rel="noopener">Amazon says hackers&#39; AI agents found and exploited 0-day with little human input</a></h3>
+  <p>The Cairn AI framework is proving to be a boon for defenders and attackers.</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>Ars Technica (AI)</span><span>2 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI news</div>
+  <h3><a href="https://www.theverge.com/ai-artificial-intelligence/1040652/jensen-huang-nvidia-trump-reinstated" target="_blank" rel="noopener">Trump engineered a risky comeback for Jensen Huang</a></h3>
+  <p>After Nvidia&#39;s board accepted Jensen Huang&#39;s resignation as CEO, following reports that Huang had an affair with an alleged Chinese spy, President Donald Trump, too, appeared to submit to the new reality. Appearing on Stephen A.</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>The Verge (AI)</span><span>16 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI news</div>
+  <h3><a href="https://www.theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang" target="_blank" rel="noopener">Nvidia CEO Jensen Huang is back. What happens next?</a></h3>
+  <p>After the leather-jacketed CEO, president, and co-founder of Nvidia, Jensen Huang, acknowledged an affair with Megaspeed exec Alice Huang, his company initially announced an investigation. However, after The New York Times reported there was evidence of another affair, this time...</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>The Verge (AI)</span><span>16 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI news</div>
+  <h3><a href="https://www.theverge.com/ai-artificial-intelligence/1040819/welcome-to-elite-impunity-jensen-huang" target="_blank" rel="noopener">Welcome to elite impunity, Jensen Huang</a></h3>
+  <p>I suppose I must issue a hearty congratulations to Jensen Huang. Huang is CEO of Nvidia again, to the surprise of basically everyone except President Donald Trump and Vice President JD Vance, who made sure it happened.</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>The Verge (AI)</span><span>16 h ago</span>
+  
+  
+</div>
+</article><article class="story">
+  <div class="kicker">AI industry</div>
+  <h3><a href="https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/" target="_blank" rel="noopener">Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes</a></h3>
+  <p>As AI-generated code piles up, Anthropic&#39;s new developer tools aim to eliminate another bottleneck by letting agents handle routine approvals.</p>
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>TechCrunch (AI)</span><span>16 h ago</span>
+  
+  
+</div>
+</article></div>
+    
+  </section>
+</main>
+
+<div class="sidecol">
+<aside id="side" aria-label="Off the Clock">
+  <div>
+    <h2>Off the Clock</h2>
+    <p class="empty">Career and personal interests</p>
+  </div>
+  <article class="story">
+  <div class="kicker">Behavioral economics</div>
+  <h3><a href="https://arxiv.org/abs/2611.31083v1" target="_blank" rel="noopener">AI-Assisted Programming and Labor Demand</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>arXiv General Economics</span><span>21 h ago</span>
+  <span class="tag">Preprint, not peer-reviewed</span>
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Quant and algo trading</div>
+  <h3><a href="https://arxiv.org/abs/2611.30982v1" target="_blank" rel="noopener">Design an Algorithmic Stablecoin based on a Predictive PID Controller</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>arXiv Quantitative Finance</span><span>22 h ago</span>
+  <span class="tag">Preprint, not peer-reviewed</span>
+  
+</div>
+</article><article class="story">
+  <div class="kicker">Quant and algo trading</div>
+  <h3><a href="https://arxiv.org/abs/2611.30843v1" target="_blank" rel="noopener">Cleaning correlation matrices with external information: the Maximum Variance estimat</a></h3>
+  
+  <div class="meta">
+  <span class="g gB" title="Reputable secondary source">B</span>
+  <span>arXiv Quantitative Finance</span><span>23 h ago</span>
+  <span class="tag">Preprint, not peer-reviewed</span>
+  
+</div>
+</article>
+  
+</aside>
+
+
+
+
+
+<aside id="markets" aria-label="Markets" class="mk">
+  <div>
+    <h2 style="margin:0;font-family:var(--serif);font-size:26px">Markets</h2>
+    <p class="empty">Daily snapshot taken when the paper was built, not live prices. For information only, not investment advice.</p>
+  </div>
+
+  <div class="mk-sub">
+    <h3>Open market rates (PKR)</h3>
+    
+    <table><thead><tr><th>Currency</th><th class="r">Buying</th><th class="r">Selling</th></tr></thead><tbody>
+    <tr><td>USD</td><td class="r">277.27</td><td class="r">278.47</td></tr><tr><td>EUR</td><td class="r">304.33</td><td class="r">307.23</td></tr><tr><td>GBP</td><td class="r">363.47</td><td class="r">366.89</td></tr><tr><td>AED</td><td class="r">75.57</td><td class="r">76.14</td></tr><tr><td>SAR</td><td class="r">73.99</td><td class="r">74.49</td></tr>
+    </tbody></table>
+    <p class="src"><span class="g gA">A</span> <a href="https://www.sbp.org.pk/assets/document/open-market-closing-exchange-rates-23-November-2026.pdf" target="_blank" rel="noopener">ECAP open market closing rates (via State Bank of Pakistan)</a>, closing rates of 23 Nov 2026</p>
+    
+  </div>
+
+  <div class="mk-sub">
+    <h3>Gold</h3>
+    <table><tbody>
+      <tr><td>24K per tola (Pakistan)</td><td class="r">Rs 385,436</td></tr>
+      <tr><td>International, per ounce</td><td class="r">US$ 3,619.85</td></tr>
+    </tbody></table>
+    <p class="src"><span class="g gB">B</span> Pakistan rate as reported by <a href="https://www.brecorder.com/news/40450521/gold-price-per-tola-rises-rs1300-in-pakistan" target="_blank" rel="noopener">Business Recorder (Latest)</a> (APGJSA rates)</p>
+    <p class="src"><span class="g gC">C</span> International price from <a href="https://api.gold-api.com/price/XAU" target="_blank" rel="noopener">gold-api.com</a></p>
+  </div>
+
+  <div class="mk-sub">
+    <h3>PSX indices</h3>
+    
+    <table><tbody>
+    <tr><td>KSE-100</td><td class="r big">178,542.28</td><td class="r"><span class="up">+0.60%</span></td></tr><tr><td>KMI-30 (Meezan)</td><td class="r big">258,117.88</td><td class="r"><span class="up">+0.71%</span></td></tr>
+    </tbody></table>
+    
+  </div>
+
+  
+  <div class="mk-sub">
+    <h3>KSE-100: largest 10 companies</h3>
+    <table><thead><tr><th>Symbol</th><th class="r">Price (Rs)</th><th class="r">Change</th></tr></thead><tbody>
+<tr><td title="Fauji Fertilizer Company Limited">FFC</td><td class="r">573.82</td><td class="r"><span class="up">+0.70%</span></td></tr><tr><td title="United Bank Limited">UBL</td><td class="r">431.16</td><td class="r"><span class="up">+0.08%</span></td></tr><tr><td title="Engro Holdings Limited">ENGROH</td><td class="r">308.23</td><td class="r"><span class="up">+1.69%</span></td></tr><tr><td title="Meezan Bank Limited">MEBL</td><td class="r">551.39</td><td class="r"><span class="up">+1.15%</span></td></tr><tr><td title="The Hub Power Company Limited">HUBC</td><td class="r">212.54</td><td class="r"><span class="down">-0.09%</span></td></tr><tr><td title="Oil &amp; Gas Development Company Limited">OGDC</td><td class="r">311.77</td><td class="r"><span class="up">+0.36%</span></td></tr><tr><td title="Lucky Cement Limited">LUCK</td><td class="r">433.68</td><td class="r"><span class="up">+1.01%</span></td></tr><tr><td title="Habib Bank Limited">HBL</td><td class="r">305.70</td><td class="r"><span class="up">+0.87%</span></td></tr><tr><td title="Mari Energies Limited">MARI</td><td class="r">724.52</td><td class="r"><span class="up">+0.08%</span></td></tr><tr><td title="MCB Bank Limited">MCB</td><td class="r">404.48</td><td class="r"><span class="down">-0.18%</span></td></tr>
+</tbody></table>
+  </div>
+  
+  
+  <div class="mk-sub">
+    <h3>KSE-100: top gainers</h3>
+    <table><thead><tr><th>Symbol</th><th class="r">Price (Rs)</th><th class="r">Change</th></tr></thead><tbody>
+<tr><td title="Pak-Gulf Leasing Company Limited">PGLC</td><td class="r">27.12</td><td class="r"><span class="up">+9.93%</span></td></tr><tr><td title="TPL REIT Fund I">TPLRF1</td><td class="r">9.28</td><td class="r"><span class="up">+7.78%</span></td></tr><tr><td title="Yousaf Weaving Mills Limited">YOUW</td><td class="r">5.53</td><td class="r"><span class="up">+5.94%</span></td></tr><tr><td title="Thatta Cement Company Limited">THCCLXD</td><td class="r">76.70</td><td class="r"><span class="up">+3.69%</span></td></tr><tr><td title="Honda Atlas Cars (Pakistan) Limited">HCAR</td><td class="r">210.38</td><td class="r"><span class="up">+2.80%</span></td></tr><tr><td title="International Industries Limited">INIL</td><td class="r">157.92</td><td class="r"><span class="up">+2.43%</span></td></tr><tr><td title="Askari Bank Limited">AKBL</td><td class="r">117.92</td><td class="r"><span class="up">+2.36%</span></td></tr><tr><td title="National Bank of Pakistan">NBP</td><td class="r">180.89</td><td class="r"><span class="up">+2.18%</span></td></tr><tr><td title="Fatima Fertilizer Company Limited">FATIMA</td><td class="r">147.70</td><td class="r"><span class="up">+2.08%</span></td></tr><tr><td title="Tariq Glass Industries Limited">TGL</td><td class="r">187.33</td><td class="r"><span class="up">+2.08%</span></td></tr>
+</tbody></table>
+  </div>
+  <div class="mk-sub">
+    <h3>KSE-100: top losers</h3>
+    <table><thead><tr><th>Symbol</th><th class="r">Price (Rs)</th><th class="r">Change</th></tr></thead><tbody>
+<tr><td title="Pakistan Services Limited">PSEL</td><td class="r">1,249.19</td><td class="r"><span class="down">-3.03%</span></td></tr><tr><td title="Haleon Pakistan Limited">HALEON</td><td class="r">680.70</td><td class="r"><span class="down">-1.31%</span></td></tr><tr><td title="Unilever Pakistan Foods Limited">UPFL</td><td class="r">26,247.50</td><td class="r"><span class="down">-1.02%</span></td></tr><tr><td title="Bannu Woollen Mills Limited">BNWM</td><td class="r">62.85</td><td class="r"><span class="down">-0.85%</span></td></tr><tr><td title="The Searle Company Limited">SEARL</td><td class="r">81.71</td><td class="r"><span class="down">-0.52%</span></td></tr><tr><td title="S.S.Oil Mills Limited">SSOM</td><td class="r">415.13</td><td class="r"><span class="down">-0.47%</span></td></tr><tr><td title="Engro Fertilizers Limited">EFERT</td><td class="r">217.28</td><td class="r"><span class="down">-0.45%</span></td></tr><tr><td title="Bank AL Habib Limited">BAHL</td><td class="r">168.26</td><td class="r"><span class="down">-0.41%</span></td></tr><tr><td title="HBL Growth Fund">HGFA</td><td class="r">13.35</td><td class="r"><span class="down">-0.37%</span></td></tr><tr><td title="Ibrahim Fibres Limited">IBFL</td><td class="r">245.53</td><td class="r"><span class="down">-0.35%</span></td></tr>
+</tbody></table>
+  </div>
+  
+  
+  <div class="mk-sub">
+    <h3>KMI-30: top gainers</h3>
+    <table><thead><tr><th>Symbol</th><th class="r">Price (Rs)</th><th class="r">Change</th></tr></thead><tbody>
+<tr><td title="Honda Atlas Cars (Pakistan) Limited">HCAR</td><td class="r">210.38</td><td class="r"><span class="up">+2.80%</span></td></tr><tr><td title="National Refinery Limited">NRL</td><td class="r">464.68</td><td class="r"><span class="up">+1.82%</span></td></tr><tr><td title="Fauji Foods Limited">FFL</td><td class="r">14.88</td><td class="r"><span class="up">+1.78%</span></td></tr><tr><td title="Engro Holdings Limited">ENGROH</td><td class="r">308.23</td><td class="r"><span class="up">+1.69%</span></td></tr><tr><td title="Nishat Mills Limited">NML</td><td class="r">133.90</td><td class="r"><span class="up">+1.54%</span></td></tr>
+</tbody></table>
+  </div>
+  <div class="mk-sub">
+    <h3>KMI-30: top losers</h3>
+    <table><thead><tr><th>Symbol</th><th class="r">Price (Rs)</th><th class="r">Change</th></tr></thead><tbody>
+<tr><td title="Treet Corporation Limited">TREET</td><td class="r">27.99</td><td class="r"><span class="down">-1.31%</span></td></tr><tr><td title="The Searle Company Limited">SEARL</td><td class="r">81.71</td><td class="r"><span class="down">-0.52%</span></td></tr><tr><td title="Engro Fertilizers Limited">EFERT</td><td class="r">217.28</td><td class="r"><span class="down">-0.45%</span></td></tr><tr><td title="The Hub Power Company Limited">HUBC</td><td class="r">212.54</td><td class="r"><span class="down">-0.09%</span></td></tr><tr><td title="Sui Southern Gas Company Limited">SSGC</td><td class="r">23.63</td><td class="r"><span class="down">-0.08%</span></td></tr>
+</tbody></table>
+  </div>
+  
+  <p class="src"><span class="g gA">A</span> Stock and index data from the <a href="https://dps.psx.com.pk/" target="_blank" rel="noopener">PSX Data Portal</a>, last trading session.</p>
+</aside>
+
+</div>
+</div>
+
+<footer>
+  <div class="stats">
+    <span>Sources checked: 25</span>
+    <span>Sources reached: 25</span>
+    <span>Stories: 49</span>
+    <span>Duplicates merged: 0</span>
+  </div>
+  
+  <p>Every headline links to the original article. Summaries are taken from each source's own feed; check the original before quoting it to a client.</p>
+</footer>
+</div>
+</body>
+</html>
