@@ -1,42 +1,42 @@
 {
-  "date": "Tuesday, 24 November 2026",
+  "date": "Wednesday, 25 November 2026",
   "top": [
     {
-      "title": "Enable Azure Blob Storage Events Without Compromising Your Tenant Private Links Policy",
-      "link": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Enable-Azure-Blob-Storage-Events-Without-Compromising-Your/ba-p/5408564",
-      "grade": "A",
-      "source": "Microsoft Fabric Blog"
+      "title": "Copilot without M365, and more news you didn\u2019t hear (but maybe should have) at Microsoft Ignite",
+      "link": "https://www.geekwire.com/2026/copilot-without-m365-and-more-news-you-didnt-hear-but-maybe-should-have-at-microsoft-ignite/",
+      "grade": "B",
+      "source": "GeekWire"
     },
     {
-      "title": "Dynamics 365 Sales: Customize how Recommended Actions are prioritized with custom instructions",
-      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=581790",
+      "title": "Dynamics 365 Human Resources: Agent onboarding for new employees",
+      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=581772",
       "grade": "A",
       "source": "Microsoft 365 Roadmap"
     },
     {
-      "title": "Microsoft Copilot (Microsoft 365): The more you use Copilot in Office the better it gets",
-      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=580889",
+      "title": "Dynamics 365 Project Operations: Activity Approvals Agent",
+      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=578903",
       "grade": "A",
       "source": "Microsoft 365 Roadmap"
     }
   ],
-  "pricing_confirmed": 2,
+  "pricing_confirmed": 0,
   "pricing_reported": 0,
   "events": 6,
   "next_event": "",
-  "offers": 1,
+  "offers": 0,
   "usd_open_market": {
     "code": "USD",
-    "buy": 277.27,
-    "sell": 278.47
+    "buy": 277.18,
+    "sell": 278.38
   },
   "kmi30": {
     "name": "KMI30",
-    "value": 258117.88,
-    "change": 1828.43,
-    "change_pct": 0.71
+    "value": 257356.09,
+    "change": -761.79,
+    "change_pct": -0.3
   },
-  "stories": 49,
+  "stories": 44,
   "sources_ok": 25,
   "sources_failed": []
 }
