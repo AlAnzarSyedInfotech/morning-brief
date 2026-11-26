@@ -1,23 +1,23 @@
 {
-  "date": "Wednesday, 25 November 2026",
+  "date": "Thursday, 26 November 2026",
   "top": [
     {
-      "title": "Copilot without M365, and more news you didn\u2019t hear (but maybe should have) at Microsoft Ignite",
-      "link": "https://www.geekwire.com/2026/copilot-without-m365-and-more-news-you-didnt-hear-but-maybe-should-have-at-microsoft-ignite/",
+      "title": "Microsoft Viva: Access Management for Copilot Analytics",
+      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=578862",
+      "grade": "A",
+      "source": "Microsoft 365 Roadmap"
+    },
+    {
+      "title": "Retirement: Support for Java 8, 11 and 17 in Azure Functions ends on September 1, 2027",
+      "link": "https://azure.microsoft.com/updates?id=568586",
+      "grade": "A",
+      "source": "Azure Updates"
+    },
+    {
+      "title": "42 state AGs are trying to stop Character.AI from selling users\u2019 chats",
+      "link": "https://www.theverge.com/policy/1042620/character-ai-sale-state-ags-block-selling-users-chats",
       "grade": "B",
-      "source": "GeekWire"
-    },
-    {
-      "title": "Dynamics 365 Human Resources: Agent onboarding for new employees",
-      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=581772",
-      "grade": "A",
-      "source": "Microsoft 365 Roadmap"
-    },
-    {
-      "title": "Dynamics 365 Project Operations: Activity Approvals Agent",
-      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=578903",
-      "grade": "A",
-      "source": "Microsoft 365 Roadmap"
+      "source": "The Verge (AI)"
     }
   ],
   "pricing_confirmed": 0,
@@ -32,11 +32,11 @@
   },
   "kmi30": {
     "name": "KMI30",
-    "value": 257356.09,
-    "change": -761.79,
-    "change_pct": -0.3
+    "value": 257590.86,
+    "change": 234.77,
+    "change_pct": 0.09
   },
-  "stories": 44,
+  "stories": 32,
   "sources_ok": 25,
   "sources_failed": []
 }
