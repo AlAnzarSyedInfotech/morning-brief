@@ -1,42 +1,42 @@
 {
-  "date": "Thursday, 26 November 2026",
+  "date": "Friday, 27 November 2026",
   "top": [
     {
-      "title": "Microsoft Viva: Access Management for Copilot Analytics",
-      "link": "https://www.microsoft.com/microsoft-365/roadmap?id=578862",
-      "grade": "A",
-      "source": "Microsoft 365 Roadmap"
-    },
-    {
-      "title": "Retirement: Support for Java 8, 11 and 17 in Azure Functions ends on September 1, 2027",
-      "link": "https://azure.microsoft.com/updates?id=568586",
-      "grade": "A",
-      "source": "Azure Updates"
-    },
-    {
-      "title": "42 state AGs are trying to stop Character.AI from selling users\u2019 chats",
-      "link": "https://www.theverge.com/policy/1042620/character-ai-sale-state-ags-block-selling-users-chats",
+      "title": "Android\u2019s DIY widgets are a bit of vibe-coding fun",
+      "link": "https://www.theverge.com/tech/1041801/android-intelligence-create-my-widget-gemini",
       "grade": "B",
       "source": "The Verge (AI)"
+    },
+    {
+      "title": "Nvidia hits pause on chip shipments to Southeast Asia",
+      "link": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+      "grade": "B",
+      "source": "TechCrunch (AI)"
+    },
+    {
+      "title": "Grand Theft Auto VI proves why efficiency isn\u2019t a virtue",
+      "link": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+      "grade": "B",
+      "source": "TechCrunch (AI)"
     }
   ],
   "pricing_confirmed": 0,
   "pricing_reported": 0,
-  "events": 6,
+  "events": 5,
   "next_event": "",
   "offers": 0,
   "usd_open_market": {
     "code": "USD",
-    "buy": 277.18,
-    "sell": 278.38
+    "buy": 277.25,
+    "sell": 278.4
   },
   "kmi30": {
     "name": "KMI30",
-    "value": 257590.86,
-    "change": 234.77,
-    "change_pct": 0.09
+    "value": 256704.92,
+    "change": -885.94,
+    "change_pct": -0.34
   },
-  "stories": 32,
+  "stories": 24,
   "sources_ok": 25,
   "sources_failed": []
 }
