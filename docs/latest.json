@@ -1,6 +1,12 @@
 {
-  "date": "Friday, 27 November 2026",
+  "date": "Saturday, 28 November 2026",
   "top": [
+    {
+      "title": "Seattle skier vibe-codes \u2018Pow Pow,\u2019 a new snow report app that doesn\u2019t sugarcoat the conditions",
+      "link": "https://www.geekwire.com/2026/seattle-skier-vibe-codes-pow-pow-a-new-snow-report-app-that-doesnt-sugarcoat-the-conditions/",
+      "grade": "B",
+      "source": "GeekWire"
+    },
     {
       "title": "Android\u2019s DIY widgets are a bit of vibe-coding fun",
       "link": "https://www.theverge.com/tech/1041801/android-intelligence-create-my-widget-gemini",
@@ -8,21 +14,15 @@
       "source": "The Verge (AI)"
     },
     {
-      "title": "Nvidia hits pause on chip shipments to Southeast Asia",
-      "link": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+      "title": "CDA seals Fazl\u2019s Islamabad residence after 'foreign' owner's CNIC cancelled",
+      "link": "https://www.dawn.com/news/2047652/cda-seals-fazls-islamabad-residence-after-foreign-owners-cnic-cancelled",
       "grade": "B",
-      "source": "TechCrunch (AI)"
-    },
-    {
-      "title": "Grand Theft Auto VI proves why efficiency isn\u2019t a virtue",
-      "link": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
-      "grade": "B",
-      "source": "TechCrunch (AI)"
+      "source": "Dawn"
     }
   ],
   "pricing_confirmed": 0,
   "pricing_reported": 0,
-  "events": 5,
+  "events": 6,
   "next_event": "",
   "offers": 0,
   "usd_open_market": {
@@ -36,7 +36,7 @@
     "change": -885.94,
     "change_pct": -0.34
   },
-  "stories": 24,
+  "stories": 18,
   "sources_ok": 25,
   "sources_failed": []
 }
